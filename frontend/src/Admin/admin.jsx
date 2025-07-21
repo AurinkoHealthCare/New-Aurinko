@@ -14,8 +14,11 @@ const Admin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check credentials
-    if (form.username === 'admin' && form.password === 'aurinko12') {
+    const { username, password } = form;
+
+    if (username === 'admin' && password === 'aurinko12') {
+      // Save login state (optional but recommended)
+      localStorage.setItem('isAdmin', 'true');
       navigate('/dashboard');
     } else {
       setError('Invalid username or password');
