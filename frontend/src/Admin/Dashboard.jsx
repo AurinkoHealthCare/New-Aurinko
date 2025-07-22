@@ -10,7 +10,6 @@ const Dashboard = () => {
                 <div className="flex-1 p-4">
                     <Outlet />
                 </div>
-                <h1>hello admin </h1>
             </div>
         </div>
     );

@@ -63,6 +63,29 @@ import Reintoni from "./User/Data/banner_data/reintoni";
 import PrivateRoute from '../private/privaterouts';
 import Dashboard from './Admin/Dashboard';
 import Unauthorized from '../private/privatepage';
+import Dash_Home from './Admin/Pages/Home/Home';
+//Media
+import Banner from './Admin/Pages/Media/Banner';
+import Productimage from './Admin/Pages/Media/Product image';
+import ProductLogo from './Admin/Pages/Media/Product logo';
+//About Us
+import Overview from './Admin/Pages/Pages/About us/Overview';
+import Vision from './Admin/Pages/Pages/About us/Vision & Mission';
+import Manufacturing from './Admin/Pages/Pages/About us/Manufacturing Facility';
+import Research from './Admin/Pages/Pages/About us/Research & Development';
+import Exporte from './Admin/Pages/Pages/About us/Export';
+import Certificate from './Admin/Pages/Pages/About us/Certificates';
+import NanoFertilizer from './Admin/Pages/Pages/Agriculture/Nano Fertilizers';
+import Soilmineral from './Admin/Pages/Pages/Agriculture/Soil Minerals';
+import Contact from './Admin/Pages/Pages/Contact Us/Contact us';
+import Block1 from './Admin/Pages/Pages/Home/Block 1';
+import Block2 from './Admin/Pages/Pages/Home/Block 2';
+import Block3 from './Admin/Pages/Pages/Home/Block 3';
+import Block4 from './Admin/Pages/Pages/Home/Block 4';
+import Block5 from './Admin/Pages/Pages/Home/Block 5';
+import Block6 from './Admin/Pages/Pages/Home/Block 6';
+import Block7 from './Admin/Pages/Pages/Home/Block 7';
+import ImageSlider from './Admin/Pages/Pages/Home/Image Slider';
 
 function App() {
   return (
@@ -129,14 +152,47 @@ function App() {
 
         {/* Admin */}
         <Route path="/admin" element={<Admin />} />
-         <Route path="/dashboard" element={
-      <PrivateRoute
-         allowedRoles={["admin"]}>
-        <Dashboard />
-      </PrivateRoute>
-    }
-  />
-  <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/dashboard" element={
+          <PrivateRoute
+            allowedRoles={["admin"]}>
+            <Dashboard />
+          </PrivateRoute>
+        }
+        >
+          <Route path='/dashboard/' element={<Dash_Home />} />
+
+          {/* Media */}
+          <Route path='/dashboard/banner' element={<Banner />} />
+          <Route path='/dashboard/productimage' element={<Productimage />} />
+          <Route path='/dashboard/productlogo' element={<ProductLogo />} />
+
+          {/* Home */}
+          <Route path='/dashboard/imageSlider' element={<ImageSlider />} />
+          <Route path='/dashboard/block1' element={<Block1 />} />
+          <Route path='/dashboard/block2' element={<Block2 />} />
+          <Route path='/dashboard/block3' element={<Block3 />} />
+          <Route path='/dashboard/block4' element={<Block4 />} />
+          <Route path='/dashboard/block5' element={<Block5 />} />
+          <Route path='/dashboard/block6' element={<Block6 />} />
+          <Route path='/dashboard/block7' element={<Block7 />} />
+
+          {/* About us */}
+          <Route path='/dashboard/overview' element={<Overview />} />
+          <Route path='/dashboard/Vision' element={<Vision />} />
+          <Route path='/dashboard/manufacturing' element={<Manufacturing />} />
+          <Route path='/dashboard/research' element={<Research />} />
+          <Route path='/dashboard/exporte' element={<Exporte />} />
+          <Route path='/dashboard/certificate' element={<Certificate />} />
+
+          {/* Agriculture */}
+          <Route path='/dashboard/nanofertilizer' element={<NanoFertilizer />} />
+          <Route path='/dashboard/soilmineral' element={<Soilmineral />} />
+
+          {/* Contact */}
+          <Route path='/dashboard/contact' element={<Contact />} />
+
+        </Route>
+        <Route path="/unauthorized" element={<Unauthorized />} />
       </Routes>
     </div>
   );
