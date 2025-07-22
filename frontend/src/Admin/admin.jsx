@@ -1,129 +1,81 @@
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-
-// const Admin = () => {
-//   const navigate = useNavigate();
-
-//   const [form, setForm] = useState({ username: '', password: '' });
-//   const [error, setError] = useState('');
-
-//   const handleChange = (e) => {
-//     setForm({ ...form, [e.target.name]: e.target.value });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     const { username, password } = form;
-
-//     if (username === 'admin' && password === 'aurinko12') {
-//       // Save login state (optional but recommended)
-//       localStorage.setItem('isAdmin', 'true');
-//       navigate('/dashboard');
-//     } else {
-//       setError('Invalid username or password');
-//     }
-//   };
-
-//   return (
-//     <div className="flex items-center justify-center min-h-screen bg-gray-100 font-sans">
-//       <div className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
-//         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-//           Login to Your Account
-//         </h2>
-
-//         {error && (
-//           <p className="mb-4 text-sm text-red-600 text-center">{error}</p>
-//         )}
-
-//         <form onSubmit={handleSubmit}>
-//           <div className="mb-4">
-//             <label htmlFor="username" className="block text-sm font-medium text-gray-700">
-//               Username
-//             </label>
-//             <input
-//               type="text"
-//               id="username"
-//               name="username"
-//               value={form.username}
-//               onChange={handleChange}
-//               placeholder="Enter your username"
-//               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               required
-//             />
-//           </div>
-
-//           <div className="mb-6">
-//             <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-//               Password
-//             </label>
-//             <input
-//               type="password"
-//               id="password"
-//               name="password"
-//               value={form.password}
-//               onChange={handleChange}
-//               placeholder="Enter your password"
-//               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-//               required
-//             />
-//           </div>
-
-//           <button
-//             type="submit"
-//             className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold"
-//           >
-//             Login
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Admin;
-
-
-
-import React, { useState } from "react";
-import axiosInstance from "../../api/baseurl";
+// src/pages/Login.jsx
+import { useState } from "react";
+import axios from "axios";
+import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
-const AdminLogin = () => {
-  const [form, setForm] = useState({ name: "", password: "" });
+const Admin = () => {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
+
     try {
-      const res = await axiosInstance.post("/admin/login", form);
-      sessionStorage.setItem("role", res.data.role);
-      navigate("/admin/dashboard");
+      const res = await axios.post("http://localhost:5000/api/admin/login", {
+        name,
+        password,
+      });
+
+      const { token, role } = res.data;
+
+      // Save token & role in cookies
+      Cookies.set("token", token, { expires: 7 });
+      Cookies.set("role", role, { expires: 7 });
+
+      // Redirect based on role
+      if (role === "admin") {
+        navigate("/admin/dashboard");
+      } else if (role === "user") {
+        navigate("/user/dashboard");
+      } else {
+        navigate("/unauthorized");
+      }
     } catch (err) {
-      alert("Invalid Credentials");
+      setError(err.response?.data?.message || "Login failed");
     }
   };
 
   return (
-    <div>
-      <h2>Admin Login</h2>
-      <form onSubmit={handleLogin}>
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <form
+        onSubmit={handleLogin}
+        className="bg-white p-6 rounded shadow-md w-96"
+      >
+        <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
+
+        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+
+        <label className="block mb-2">Email</label>
         <input
-          type="text"
-          placeholder="Name"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
+          type="email"
+          className="w-full p-2 border border-gray-300 rounded mb-4"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
+
+        <label className="block mb-2">Password</label>
         <input
           type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
+          className="w-full p-2 border border-gray-300 rounded mb-4"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
-        <button type="submit">Login</button>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded"
+        >
+          Login
+        </button>
       </form>
     </div>
   );
 };
 
-export default AdminLogin;
+export default Admin;
