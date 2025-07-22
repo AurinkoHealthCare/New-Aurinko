@@ -1,22 +1,6 @@
-import React, { useState, useEffect } from 'react';
-
-const images = [
-  '/Assets/Aurinko Home 1.png',
-  '/Assets/Aurinko Home 2.jpeg'
-];
+import React from 'react';
 
 const Block1 = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 6000);
-
-    return () => clearInterval(interval);
-  }, []);
   return (
     <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-center justify-center py-6 px-4 sm:px-6 md:px-12 lg:px-16">
       <div className="w-full md:w-1/2 px-4">
@@ -38,20 +22,10 @@ const Block1 = () => {
       </div>
       <div className="relative w-full md:w-1/2 h-60 sm:h-72 md:h-80 lg:h-96 xl:h-[35rem] shadow-lg rounded-xl overflow-hidden">
         <img
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex + 1}`}
+          src="/Assets/Aurinko Home 1.png"
+          alt="Aurinko Home"
           className="w-full h-full object-cover rounded-xl transition-all duration-1000 ease-in-out"
         />
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {images.map((_, index) => (
-            <div
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full cursor-pointer ${index === currentIndex ? 'bg-white' : 'bg-gray-400'
-                }`}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );

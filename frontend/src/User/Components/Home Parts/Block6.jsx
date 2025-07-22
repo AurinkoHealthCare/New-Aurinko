@@ -1,53 +1,33 @@
-import React, { useState } from "react";
-import { speciesData } from "../../Data/data";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from 'react-router-dom';
 
 const Block6 = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
-  const navigate = useNavigate();
-
-  const speciesPaths = {
-    Livestock: "/livestock",
-    Poultry: "/poultry",
-    Aqua: "/aqua",
-    Swine: "/swine",
-    Pet: "/pet",
-    Equine: "/equine",
-    "Feed & Grain": "/feed-grain",
-  };
-
-  const handleClick = (e, speciesTitle) => {
+  const reloadPage = (e, url) => {
     e.preventDefault();
-    const path = speciesPaths[speciesTitle];
-    if (path) {
-      window.location.href = path;
-    }
+    window.location.href = url;
   };
-
+  
   return (
-    <div className="relative flex justify-center py-8 px-4 md:px-8 lg:px-12 min-h-48">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
-        {speciesData.map((species, index) => (
-          <div
-            key={index}
-            className={`relative w-36 h-36 md:w-44 lg:w-44 flex flex-col items-center bg-white rounded-lg shadow-lg cursor-pointer border-2 border-transparent transition-transform duration-300 ${
-              expandedIndex === index ? "scale-105" : ""
-            }`}
-            onMouseEnter={() => setExpandedIndex(index)}
-            onMouseLeave={() => setExpandedIndex(null)}
-            onClick={(e) => handleClick(e, species.title)}
-          >
-            <img
-              src={species.image}
-              alt={species.title}
-              className="w-full h-[70%] object-cover rounded-t-lg"
-            />
-            <h1 className="text-sm sm:text-md font-bold text-center mt-2 text-green-800">
-              {species.title}
-            </h1>
-          </div>
-        ))}
+    <div className="flex flex-col items-center justify-center py-12 px-6 md:px-10 lg:px-16">
+      <div className="text-center">
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-orange-600">
+          GET IN <span className="text-green-800">TOUCH</span>
+        </h1>
+        <div
+          className="h-1 w-32 md:w-40 lg:w-48 xl:w-56 rounded-full mx-auto mt-2"
+          style={{ background: "linear-gradient(to right, #15803d, #ea580c)" }}
+        ></div>
       </div>
+      <p className="mt-6 text-gray-700 text-center max-w-2xl text-sm md:text-base lg:text-lg">
+        Your health is our priority. We are dedicated to providing the best healthcare solutions
+        to enhance your physical, mental, and social well-being. Join us on the journey to a
+        healthier life.
+      </p>
+      <Link to="/contact-us"  onClick={(e) => reloadPage(e, "/contact-us")}>
+        <button className="mt-8 bg-green-600 text-white text-sm md:text-base px-6 py-3 rounded-lg shadow-md hover:bg-green-700 transition-all">
+          ENROLL NOW →
+        </button>
+      </Link>
     </div>
   );
 };
