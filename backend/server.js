@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const dotenv = require('dotenv');
 const MongoDB=require('./config/dataBase')
@@ -19,8 +18,8 @@ const PORT = process.env.PORT || 5000;
 // Middleware (optional)
 app.use(
   cors({
-    origin: "http://localhost:8001", // <-- React frontend ka origin
-    credentials: true, // <-- Cookies allow karega
+    origin: "http://localhost:8001", // React frontend ka origin
+    credentials: true, // Cookies allow karega
   })
 );
 app.use(express.json());
