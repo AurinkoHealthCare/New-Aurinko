@@ -6,11 +6,12 @@ const cookieParser = require('cookie-parser');
 const cors = require("cors");
 
 // require file
-const adminRoutes = require('./router/adminrouter/adminrouter');
+const authRoutes = require("./router/adminroutes/adminrouter");
 
 // dotenv config
 dotenv.config();
 MongoDB()
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,7 +27,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Test Route
-app.use('/api/admin', adminRoutes);
+app.use("/api/auth", authRoutes);
 
 // Start Server
 app.listen(PORT, () => {

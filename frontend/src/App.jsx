@@ -62,6 +62,7 @@ import Reintoni from "./User/Data/banner_data/reintoni";
 //admin
 import PrivateRoute from '../private/privaterouts';
 import Dashboard from './Admin/Dashboard';
+import Unauthorized from '../private/privatepage';
 
 function App() {
   return (
@@ -135,6 +136,7 @@ function App() {
       </PrivateRoute>
     }
   />
+  <Route path="/unauthorized" element={<Unauthorized />} />
       </Routes>
     </div>
   );

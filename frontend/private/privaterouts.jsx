@@ -1,14 +1,41 @@
+// // src/components/PrivateRoute.jsx
+// import { Navigate } from "react-router-dom";
+
+// const PrivateRoute = ({ children, allowedRoles }) => {
+//   const token = localStorage.getItem("token");
+//   const role = localStorage.getItem("role");
+
+//   if (!token) {
+//     return <Navigate to="/" />;
+//   }
+
+//   if (!allowedRoles.includes(role)) {
+//     return <Navigate to="/unauthorized" />;  // Show an Unauthorized page
+//   }
+
+//   return children;
+// };
+
+// export default PrivateRoute;
+
+
 // src/components/PrivateRoute.jsx
 import { Navigate } from "react-router-dom";
-import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
 
 const PrivateRoute = ({ children, allowedRoles }) => {
-  const role = Cookies.get("role"); // Get role from cookie
+  const token = localStorage.getItem("token");
 
-  if (!role) return <Navigate to="/admin" />;
-  if (!allowedRoles.includes(role)) return <Navigate to="/unauthorized" />;
+  if (!token) return <Navigate to="/" />;
 
-  return children;
+  try {
+    const decoded = jwtDecode(token);
+    const userRole = decoded.role;
+
+    return allowedRoles.includes(userRole) ? children : <Navigate to="/unauthorized" />;
+  } catch (error) {
+    return <Navigate to="/" />;
+  }
 };
 
 export default PrivateRoute;

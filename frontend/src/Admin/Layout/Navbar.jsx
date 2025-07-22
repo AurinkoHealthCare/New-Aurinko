@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState(null);
     const [nestedDropdown, setNestedDropdown] = useState({});
 
+    const navigate = useNavigate();
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
@@ -20,6 +22,10 @@ const Navbar = () => {
             [parent]: prev[parent] === child ? null : child,
         }));
     };
+    const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
     return (
         <div className="flex">
@@ -205,7 +211,7 @@ const Navbar = () => {
                         Feedback
                     </button>
 
-                    <button className="text-right hover:underline text-red-300 px-4 py-2 rounded">
+                    <button onClick={handleLogout} className="text-right hover:underline text-red-300 px-4 py-2 rounded">
                         Log out
                     </button>
                 </div>
