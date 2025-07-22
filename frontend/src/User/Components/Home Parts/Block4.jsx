@@ -1,46 +1,67 @@
-import React from "react";
-import { productTypes } from "../../Data/data";
+import React, { useState } from "react";
+import { speciesData } from "../../Data/data";
+import { useNavigate } from "react-router-dom";
 
 const Block4 = () => {
+    const [expandedIndex, setExpandedIndex] = useState(null);
+  const navigate = useNavigate();
+
+  const speciesPaths = {
+    Livestock: "/livestock",
+    Poultry: "/poultry",
+    Aqua: "/aqua",
+    Swine: "/swine",
+    Pet: "/pet",
+    Equine: "/equine",
+    "Feed & Grain": "/feed-grain",
+  };
+
+  const handleClick = (e, speciesTitle) => {
+    e.preventDefault();
+    const path = speciesPaths[speciesTitle];
+    if (path) {
+      window.location.href = path;
+    }
+  };
   return (
-    <div className="w-full min-h-screen flex flex-col items-center justify-center py-12 px-4 md:px-8 lg:px-16 xl:px-24">
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-green-800">
-        PRODUCT <span className="text-orange-600">TYPES</span>
+    <div>
+    <div className="flex flex-col items-center justify-center py-8 px-4 md:px-8 lg:px-12">
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 text-orange-600">
+        SPECIES{" "}
+        <span className="text-green-800">: FEED & GRAIN FOCUS</span>
       </h1>
       <div
-        className="h-1 w-48 md:w-56 lg:w-64 xl:w-72 rounded"
-        style={{ background: "linear-gradient(to right, #ea580c, #15803d)" }}
-      ></div>
-
-      <div className="w-full flex flex-col items-center justify-center mt-10 gap-y-12">
-        {productTypes.map((product, index) => (
+        className="h-1 w-56 sm:w-56 md:w-80 lg:w-96 xl:w-96 max-w-5xl rounded"
+        style={{
+          background: "linear-gradient(to right, #15803d, #ea580c)"
+        }}
+      >
+      </div>
+    </div>
+     <div className="relative flex justify-center py-8 px-4 md:px-8 lg:px-12 min-h-48">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+        {speciesData.map((species, index) => (
           <div
             key={index}
-            className={`w-full flex flex-col md:flex-row items-center gap-6 md:gap-12 px-4 md:px-8 ${
-              index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+            className={`relative w-36 h-36 md:w-44 lg:w-44 flex flex-col items-center bg-white rounded-lg shadow-lg cursor-pointer border-2 border-transparent transition-transform duration-300 ${
+              expandedIndex === index ? "scale-105" : ""
             }`}
+            onMouseEnter={() => setExpandedIndex(index)}
+            onMouseLeave={() => setExpandedIndex(null)}
+            onClick={(e) => handleClick(e, species.title)}
           >
-            <div className="w-full md:w-1/2 text-center md:text-left">
-              <h2
-                className={`text-xl sm:text-2xl md:text-3xl font-bold transition-transform duration-300 hover:scale-110 ${
-                  index % 2 === 0 ? "text-green-900" : "text-orange-600"
-                }`}
-              >
-                {product.title}
-              </h2>
-              <p className="text-gray-700 mt-2">{product.description}</p>
-            </div>
-
-            <div className="w-full md:w-1/2 flex justify-center">
-              <img
-                src={product.image}
-                alt={product.alt}
-                className="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[500px] object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
-                />
-            </div>
+            <img
+              src={species.image}
+              alt={species.title}
+              className="w-full h-[70%] object-cover rounded-t-lg"
+            />
+            <h1 className="text-sm sm:text-md font-bold text-center mt-2 text-green-800">
+              {species.title}
+            </h1>
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

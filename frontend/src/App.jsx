@@ -58,9 +58,10 @@ import Neuna_particles from "./User/Data/banner_data/neuna-particle";
 import Nunamin from "./User/Data/banner_data/nunamin";
 import Auribery_plus from "./User/Data/banner_data/auribery-plus";
 import Reintoni from "./User/Data/banner_data/reintoni";
-import Navbar from './Admin/Dashboard';
-import Dashboard from './Admin/Dashboard';
+
+//admin
 import PrivateRoute from '../private/privaterouts';
+import Dashboard from './Admin/Dashboard';
 
 function App() {
   return (
@@ -127,10 +128,7 @@ function App() {
 
         {/* Admin */}
         <Route path="/admin" element={<Admin />} />
-        {/* <Route path='/dashboard' element={<Dashboard />} /> */}
-         <Route
-    path="/dashboard"
-    element={
+         <Route path="/dashboard" element={
       <PrivateRoute
          allowedRoles={["admin"]}>
         <Dashboard />

@@ -1,67 +1,46 @@
-import { useState, useEffect } from "react";
-import { block3Data } from "../../Data/data";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import React from "react";
+import { productTypes } from "../../Data/data";
 
 const Block3 = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  useEffect(() => {
-    block3Data.forEach((item) => {
-      const img = new Image();
-      img.src = item.hoverImage;
-    });
-  }, []);
-
-  const renderStars = (rating) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const halfStar = rating % 1 !== 0;
-    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<FaStar key={`full-${i}`} className="text-yellow-400" />);
-    }
-    if (halfStar) {
-      stars.push(<FaStarHalfAlt key="half" className="text-yellow-400" />);
-    }
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(<FaRegStar key={`empty-${i}`} className="text-gray-400" />);
-    }
-
-    return stars;
-  };
-
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 py-6 px-4">
-      {block3Data.map((item, index) => (
-        <div
-          key={item.id}
-          className="w-full max-w-xs md:max-w-sm h-[28rem] flex flex-col justify-between bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          <div className="h-[75%] relative hover:h-full">
-            <img
-              // src={hoveredIndex === index ? item.hoverImage : item.image}
-              src={item.image}
-              alt={item.title}
-              className="w-full h-full object-cover transition-opacity duration-300"
-              loading="lazy"
-            />
-          </div>
+    <div className="w-full min-h-screen flex flex-col items-center justify-center py-12 px-4 md:px-8 lg:px-16 xl:px-24">
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-green-800">
+        PRODUCT <span className="text-orange-600">TYPES</span>
+      </h1>
+      <div
+        className="h-1 w-48 md:w-56 lg:w-64 xl:w-72 rounded"
+        style={{ background: "linear-gradient(to right, #ea580c, #15803d)" }}
+      ></div>
+
+      <div className="w-full flex flex-col items-center justify-center mt-10 gap-y-12">
+        {productTypes.map((product, index) => (
           <div
-            className={`text-center h-[25%] flex flex-col justify-center bg-gray-50 p-3 rounded-b-xl transition-opacity duration-300 ${
-              hoveredIndex === index ? "opacity-0" : "opacity-100"
+            key={index}
+            className={`w-full flex flex-col md:flex-row items-center gap-6 md:gap-12 px-4 md:px-8 ${
+              index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
             }`}
           >
-            <h3 className="text-lg font-semibold text-gray-800">{item.title}</h3>
-            <div className="flex justify-center mt-1">{renderStars(item.rating)}</div>
-            <span className="mt-2 inline-block text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-700">
-              {item.segment}
-            </span>
+            <div className="w-full md:w-1/2 text-center md:text-left">
+              <h2
+                className={`text-xl sm:text-2xl md:text-3xl font-bold transition-transform duration-300 hover:scale-110 ${
+                  index % 2 === 0 ? "text-green-900" : "text-orange-600"
+                }`}
+              >
+                {product.title}
+              </h2>
+              <p className="text-gray-700 mt-2">{product.description}</p>
+            </div>
+
+            <div className="w-full md:w-1/2 flex justify-center">
+              <img
+                src={product.image}
+                alt={product.alt}
+                className="w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[500px] object-cover rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+                />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
