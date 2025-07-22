@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,9 +23,9 @@ const Navbar = () => {
         }));
     };
     const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
-  };
+        localStorage.removeItem("token");
+        navigate("/");
+    };
 
     return (
         <div className="flex">
@@ -45,9 +45,9 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex flex-col space-y-3">
-                    <button className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left">
+                    <Link to={"/dashboard/"}><button className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left">
                         Home
-                    </button>
+                    </button></Link>
 
                     {/* Media Dropdown */}
                     <div>
@@ -59,9 +59,9 @@ const Navbar = () => {
                         </button>
                         {openDropdown === "media" && (
                             <div className="ml-4 mt-1 space-y-2">
-                                <button className="block w-full text-left px-2 hover:bg-gray-700 rounded">Banner</button>
-                                <button className="block w-full text-left px-2 hover:bg-gray-700 rounded">Product Images</button>
-                                <button className="block w-full text-left px-2 hover:bg-gray-700 rounded">Product Logo</button>
+                                <Link to={"/dashboard/banner"}><button className="block w-full text-left px-2 hover:bg-gray-700 rounded">Banner</button></Link>
+                                <Link to={"/dashboard/productimage"}><button className="block w-full text-left px-2 hover:bg-gray-700 rounded">Product Images</button></Link>
+                                <Link to={"/dashboard/productlogo"}><button className="block w-full text-left px-2 hover:bg-gray-700 rounded">Product Logo</button></Link>
                             </div>
                         )}
                     </div>
@@ -86,14 +86,14 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "Home" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Image Slider</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 1</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 2</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 3</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 4</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 5</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 6</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 7</button>
+                                            <Link to={"/dashboard/imageSlider"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Image Slider</button></Link>
+                                            <Link to={"/dashboard/block1"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 1</button></Link>
+                                            <Link to={"/dashboard/block2"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 2</button></Link>
+                                            <Link to={"/dashboard/block3"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 3</button></Link>
+                                            <Link to={"/dashboard/block4"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 4</button></Link>
+                                            <Link to={"/dashboard/block5"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 5</button></Link>
+                                            <Link to={"/dashboard/block6"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 6</button></Link>
+                                            <Link to={"/dashboard/block7"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 7</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -108,12 +108,12 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "About Us" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Overview</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Vision & Mission</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Manufacturing Facility</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Research & Development</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Export</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Certificates</button>
+                                            <Link to={"/dashboard/overview"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Overview</button></Link>
+                                            <Link to={"/dashboard/Vision"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Vision & Mission</button></Link>
+                                            <Link to={"/dashboard/manufacturing"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Manufacturing Facility</button></Link>
+                                            <Link to={"/dashboard/research"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Research & Development</button></Link>
+                                            <Link to={"/dashboard/exporte"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Export</button></Link>
+                                            <Link to={"/dashboard/certificate"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Certificates</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -128,12 +128,12 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "Human" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Health Supplements</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Personal Care</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Yeppuen</button>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Health Supplements</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Personal Care</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Yeppuen</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -148,16 +148,16 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "Veterinary" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Livestock</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Poultry</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Aqua</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Swine</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Equine</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Pet</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Feed & Grain</button>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Livestock</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Poultry</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Aqua</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Swine</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Equine</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Pet</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Feed & Grain</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -172,14 +172,14 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "Agriculture" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nano Fertilizers</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Soil Minerals</button>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nano Fertilizers</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Soil Minerals</button></Link>
                                         </div>
                                     )}
                                 </div>
 
                                 {/* Ingredients */}
-                                <button className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded">Ingredients</button>
+                                <Link to={"/dashboard/"}><button className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded">Ingredients</button></Link>
 
                                 {/* Media */}
                                 <div>
@@ -191,25 +191,25 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "Media" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Reports</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Gallery</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Brochures</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Blogs</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Articles</button>
-                                            <button className="w-full text-left px-2 hover:bg-gray-700 rounded">Videos</button>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Reports</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Gallery</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Brochures</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Blogs</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Articles</button></Link>
+                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Videos</button></Link>
                                         </div>
                                     )}
                                 </div>
 
                                 {/* Contact Us */}
-                                <button className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded">Contact Us</button>
+                                <Link to={"/dashboard/contact"}><button className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded">Contact Us</button></Link>
                             </div>
                         )}
                     </div>
 
-                    <button className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left">
+                    <Link to={"/dashboard/"}><button className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left">
                         Feedback
-                    </button>
+                    </button></Link>
 
                     <button onClick={handleLogout} className="text-right hover:underline text-red-300 px-4 py-2 rounded">
                         Log out
