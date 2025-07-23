@@ -153,7 +153,7 @@ const ContactUs = () => {
               <span className="bg-orange-500 h-6 w-1 mr-2"></span>
               INDIA HEAD OFFICE
             </h2>
-             <p className="mb-2 font-semibold">Aurinko Healthcare Private Limited</p>
+             <p className="mb-2 font-semibold">Aurinko One Health Private Limited</p>
             <p className="mb-2">
               <i className="fas fa-map-marker-alt text-green-700"></i> Plot: 1, Mirzapur, Sec-74, Mirzapur Mor, Ballabhgarh, Faridabad, Haryana-121004
             </p>
@@ -171,7 +171,7 @@ const ContactUs = () => {
                 ZIMBABWE
               </h2>
               <p className="mb-2 font-semibold">
-                Aurinko Healthcare Zimbabwe Private Limited
+                Aurinko One Health Zimbabwe Private Limited
               </p>
               <p className="mb-2">
                 <i className="fas fa-map-marker-alt text-green-700"></i> Unit 10, 248 Williams Way, MASA , Harare, Zimbabwe
@@ -189,7 +189,7 @@ const ContactUs = () => {
                 KOREA
               </h2>
               <p className="mb-2 font-semibold">
-                Aurinko Healthcare Korea Private Limited
+                Aurinko One Health Korea Private Limited
               </p>
               <p className="mb-2">
                 <i className="fas fa-map-marker-alt text-green-700"></i> 1622 Suite, U1 center, 385 bungil 25, jomaruro, Buchuncity, Gyunggido, Korea
