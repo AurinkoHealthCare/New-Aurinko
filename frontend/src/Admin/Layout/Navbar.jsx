@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "../../../api/axios";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,10 +23,20 @@ const Navbar = () => {
             [parent]: prev[parent] === child ? null : child,
         }));
     };
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        navigate("/");
-    };
+    const handleLogout = async () => {
+  try {
+    // Clear cookie from server
+    await axios.get("/auth/logout", { withCredentials: true });
+
+    // Remove local token (if any)
+    localStorage.removeItem("token");
+
+    // Navigate to login or home
+    navigate("/");
+  } catch (error) {
+    console.error("Logout failed:", error);
+  }
+};
 
     return (
         <div className="flex">
