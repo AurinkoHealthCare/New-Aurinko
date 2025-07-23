@@ -128,12 +128,12 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "Human" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Health Supplements</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Personal Care</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Yeppuen</button></Link>
+                                            <Link to={"/dashboard/nanophosphosomes"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
+                                            <Link to={"/dashboard/neunamins"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
+                                            <Link to={"/dashboard/neunaparticles "}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
+                                            <Link to={"/dashboard/health_Supplements"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Health Supplements</button></Link>
+                                            <Link to={"/dashboard/personal_Care"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Personal Care</button></Link>
+                                            <Link to={"/dashboard/yeppuen "}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Yeppuen</button></Link>
                                         </div>
                                     )}
                                 </div>

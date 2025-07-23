@@ -86,6 +86,12 @@ import Block5 from './Admin/Pages/Pages/Home/Block 5';
 import Block6 from './Admin/Pages/Pages/Home/Block 6';
 import Block7 from './Admin/Pages/Pages/Home/Block 7';
 import ImageSlider from './Admin/Pages/Pages/Home/Image Slider';
+import Nanophosphosomes from './Admin/Pages/Pages/Humen/Nanophosphosomes';
+import Neunamins from './Admin/Pages/Pages/Humen/Neunamins';
+import Neunaparticle from './Admin/Pages/Pages/Humen/Neunaparticles';
+import Health_Supplements from './Admin/Pages/Pages/Humen/Health Supplements';
+import Personal_Care from './Admin/Pages/Pages/Humen/Personal Care';
+import Yeppuens from './Admin/Pages/Pages/Humen/Yeppuen';
 
 function App() {
   return (
@@ -183,6 +189,15 @@ function App() {
           <Route path='/dashboard/research' element={<Research />} />
           <Route path='/dashboard/exporte' element={<Exporte />} />
           <Route path='/dashboard/certificate' element={<Certificate />} />
+
+          {/* Human */}
+          <Route path='/dashboard/nanophosphosomes' element={<Nanophosphosomes />} />
+          <Route path='/dashboard/neunamins' element={<Neunamins />} />
+          <Route path='/dashboard/neunaparticles ' element={<Neunaparticle />} />
+          <Route path='/dashboard/health_Supplements' element={<Health_Supplements />} />
+          <Route path='/dashboard/personal_Care' element={<Personal_Care />} />
+          <Route path='/dashboard/yeppuen ' element={<Yeppuens />} />
+
 
           {/* Agriculture */}
           <Route path='/dashboard/nanofertilizer' element={<NanoFertilizer />} />
