@@ -75,9 +75,7 @@ import Manufacturing from './Admin/Pages/Pages/About us/Manufacturing Facility';
 import Research from './Admin/Pages/Pages/About us/Research & Development';
 import Exporte from './Admin/Pages/Pages/About us/Export';
 import Certificate from './Admin/Pages/Pages/About us/Certificates';
-import NanoFertilizer from './Admin/Pages/Pages/Agriculture/Nano Fertilizers';
-import Soilmineral from './Admin/Pages/Pages/Agriculture/Soil Minerals';
-import Contact from './Admin/Pages/Pages/Contact Us/Contact us';
+//Home
 import Block1 from './Admin/Pages/Pages/Home/Block 1';
 import Block2 from './Admin/Pages/Pages/Home/Block 2';
 import Block3 from './Admin/Pages/Pages/Home/Block 3';
@@ -86,12 +84,36 @@ import Block5 from './Admin/Pages/Pages/Home/Block 5';
 import Block6 from './Admin/Pages/Pages/Home/Block 6';
 import Block7 from './Admin/Pages/Pages/Home/Block 7';
 import ImageSlider from './Admin/Pages/Pages/Home/Image Slider';
+//Human
 import Nanophosphosomes from './Admin/Pages/Pages/Humen/Nanophosphosomes';
 import Neunamins from './Admin/Pages/Pages/Humen/Neunamins';
 import Neunaparticle from './Admin/Pages/Pages/Humen/Neunaparticles';
 import Health_Supplements from './Admin/Pages/Pages/Humen/Health Supplements';
 import Personal_Care from './Admin/Pages/Pages/Humen/Personal Care';
 import Yeppuens from './Admin/Pages/Pages/Humen/Yeppuen';
+//Veterinary
+import DVNanophosphosome from './Admin/Pages/Pages/Veterinary/Nanophosphosomes';
+import DVNeunamin from './Admin/Pages/Pages/Veterinary/Neunamins';
+import DVNeunaparticle from './Admin/Pages/Pages/Veterinary/Neunaparticles';
+import DVLivestock from './Admin/Pages/Pages/Veterinary/Livestock';
+import DVPoultry from './Admin/Pages/Pages/Veterinary/Poultry';
+import DVAqua from './Admin/Pages/Pages/Veterinary/Aqua';
+import DVSwine from './Admin/Pages/Pages/Veterinary/Swine';
+import DVEquine from './Admin/Pages/Pages/Veterinary/Equine';
+import DVPet from './Admin/Pages/Pages/Veterinary/Pet';
+import DVFeed_Grain from './Admin/Pages/Pages/Veterinary/Feed & Grain';
+//Agriculture
+import NanoFertilizer from './Admin/Pages/Pages/Agriculture/Nano Fertilizers';
+import Soilmineral from './Admin/Pages/Pages/Agriculture/Soil Minerals';
+//Contact
+import Contact from './Admin/Pages/Pages/Contact Us/Contact us';
+import Report from './Admin/Pages/Pages/Media/Reports';
+import Gallerys from './Admin/Pages/Pages/Media/Gallery';
+import Brochure from './Admin/Pages/Pages/Media/Brochures';
+import Blogs from './Admin/Pages/Pages/Media/Blogs';
+import Article from './Admin/Pages/Pages/Media/Articles';
+import Video from './Admin/Pages/Pages/Media/Videos';
+import Feedback from './Admin/Pages/Feedback/Feedback';
 
 function App() {
   return (
@@ -193,19 +215,40 @@ function App() {
           {/* Human */}
           <Route path='/dashboard/nanophosphosomes' element={<Nanophosphosomes />} />
           <Route path='/dashboard/neunamins' element={<Neunamins />} />
-          <Route path='/dashboard/neunaparticles ' element={<Neunaparticle />} />
+          <Route path='/dashboard/neunaparticle' element={<Neunaparticle />} />
           <Route path='/dashboard/health_Supplements' element={<Health_Supplements />} />
           <Route path='/dashboard/personal_Care' element={<Personal_Care />} />
-          <Route path='/dashboard/yeppuen ' element={<Yeppuens />} />
+          <Route path='/dashboard/yeppuen' element={<Yeppuens />} />
 
+          {/* Veterinary */}
+          <Route path='/dashboard/DVNanophosphosome' element={<DVNanophosphosome />} />
+          <Route path='/dashboard/DVNeunamin' element={<DVNeunamin />} />
+          <Route path='/dashboard/DVNeunaparticle' element={<DVNeunaparticle />} />
+          <Route path='/dashboard/DVLivestock' element={<DVLivestock />} />
+          <Route path='/dashboard/DVPoultry' element={<DVPoultry />} />
+          <Route path='/dashboard/DVAqua' element={<DVAqua />} />
+          <Route path='/dashboard/DVSwine' element={<DVSwine />} />
+          <Route path='/dashboard/DVEquine' element={<DVEquine />} />
+          <Route path='/dashboard/DVPet' element={<DVPet />} />
+          <Route path='/dashboard/DVFeed_Grain' element={<DVFeed_Grain />} />
 
           {/* Agriculture */}
           <Route path='/dashboard/nanofertilizer' element={<NanoFertilizer />} />
           <Route path='/dashboard/soilmineral' element={<Soilmineral />} />
 
+          {/* Media */}
+          <Route path='/dashboard/Reports' element={<Report />} />
+          <Route path='/dashboard/Gallery' element={<Gallerys />} />
+          <Route path='/dashboard/Brochures' element={<Brochure />} />
+          <Route path='/dashboard/Blogs' element={<Blogs />} />
+          <Route path='/dashboard/Articles' element={<Article />} />
+          <Route path='/dashboard/Videos' element={<Video />} />
+
           {/* Contact */}
           <Route path='/dashboard/contact' element={<Contact />} />
 
+          {/* Feedback */}
+          <Route path='/dashboard/feedback' element={<Feedback />} />
         </Route>
         <Route path="/unauthorized" element={<Unauthorized />} />
       </Routes>

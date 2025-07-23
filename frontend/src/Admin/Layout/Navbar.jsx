@@ -31,17 +31,18 @@ const Navbar = () => {
         <div className="flex">
             <button
                 onClick={toggleSidebar}
-                className="p-4 text-white bg-gray-800 md:hidden fixed top-0 left-0 z-50"
+                className="p-2 text-white bg-gray-800 md:hidden fixed top-0 left-0 z-50"
             >
                 {isOpen ? <X /> : <Menu />}
             </button>
 
             <div
-                className={`fixed top-0 left-0 z-40 bg-gray-800 text-white w-64 p-4 min-h-screen transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
-                    } md:translate-x-0 md:relative md:block`}
+                className={`fixed top-0 left-0 z-40 bg-gray-800 text-white w-64 pt-16 px-4 pb-4 min-h-screen transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
+                    } md:pt-4 md:translate-x-0 md:relative md:block`}
             >
+
                 <div className="mb-6">
-                    <h1 className="text-xl font-bold sm:text-left">Aurinko One Health</h1>
+                    <h1 className="text-xl font-bold md:text-left">Aurinko One Health</h1>
                 </div>
 
                 <div className="flex flex-col space-y-3">
@@ -130,7 +131,7 @@ const Navbar = () => {
                                         <div className="ml-4 mt-1 text-base space-y-1">
                                             <Link to={"/dashboard/nanophosphosomes"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
                                             <Link to={"/dashboard/neunamins"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
-                                            <Link to={"/dashboard/neunaparticles "}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
+                                            <Link to={"/dashboard/neunaparticle"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
                                             <Link to={"/dashboard/health_Supplements"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Health Supplements</button></Link>
                                             <Link to={"/dashboard/personal_Care"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Personal Care</button></Link>
                                             <Link to={"/dashboard/yeppuen "}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Yeppuen</button></Link>
@@ -148,16 +149,16 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "Veterinary" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Livestock</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Poultry</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Aqua</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Swine</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Equine</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Pet</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Feed & Grain</button></Link>
+                                            <Link to={"/dashboard/DVNanophosphosome"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
+                                            <Link to={"/dashboard/DVNeunamin"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
+                                            <Link to={"/dashboard/DVNeunaparticle"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
+                                            <Link to={"/dashboard/DVLivestock"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Livestock</button></Link>
+                                            <Link to={"/dashboard/DVPoultry"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Poultry</button></Link>
+                                            <Link to={"/dashboard/DVAqua"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Aqua</button></Link>
+                                            <Link to={"/dashboard/DVSwine"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Swine</button></Link>
+                                            <Link to={"/dashboard/DVEquine"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Equine</button></Link>
+                                            <Link to={"/dashboard/DVPet"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Pet</button></Link>
+                                            <Link to={"/dashboard/DVFeed_Grain"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Feed & Grain</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -172,8 +173,8 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "Agriculture" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nano Fertilizers</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Soil Minerals</button></Link>
+                                            <Link to={"/dashboard/nanofertilizer"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nano Fertilizers</button></Link>
+                                            <Link to={"/dashboard/soilmineral"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Soil Minerals</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -191,12 +192,12 @@ const Navbar = () => {
                                     </button>
                                     {nestedDropdown["pages"] === "Media" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Reports</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Gallery</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Brochures</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Blogs</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Articles</button></Link>
-                                            <Link to={"/dashboard/"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Videos</button></Link>
+                                            <Link to={"/dashboard/Reports"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Reports</button></Link>
+                                            <Link to={"/dashboard/Gallery"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Gallery</button></Link>
+                                            <Link to={"/dashboard/Brochures"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Brochures</button></Link>
+                                            <Link to={"/dashboard/Blogs"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Blogs</button></Link>
+                                            <Link to={"/dashboard/Articles"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Articles</button></Link>
+                                            <Link to={"/dashboard/Videos"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Videos</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -207,7 +208,7 @@ const Navbar = () => {
                         )}
                     </div>
 
-                    <Link to={"/dashboard/"}><button className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left">
+                    <Link to={"/dashboard/feedback"}><button className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left">
                         Feedback
                     </button></Link>
 
