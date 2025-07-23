@@ -33,7 +33,7 @@ const ResearchDevelopment = () => {
               and cater to human health as well as animal wealth.
             </p>
             <p className="text-gray-700">
-              Process Support Center at Aurinko Healthcare works on process
+              Process Support Center at Aurinko One Health works on process
               development, process optimization, pilot studies, pre-validation
               batches, validation of processes, transfer of technology to the
               plant, review improvement of processes, helps QA with investigations,

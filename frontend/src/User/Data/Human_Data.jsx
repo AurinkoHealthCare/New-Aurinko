@@ -1083,7 +1083,7 @@ const human_data = [
     id: 35,
     name: "5 Phyto-essentials with Extra Power of Vitamin D₃ and Natural Milk Ingredients",
     description:
-      "Aurinko® Golden Milk Latte is an unique blend of powerful extracts of Curcumin, Ginger, Cinnamon, Piper Nigrum, Turmerone essential oil fortified with Vitamin D₃ and natural milk ingredients. These Phytoactives enhances the value of milk and turns it a super health drink. Aurinko® Golden Milk Latte has been developed after extensive research by Phytoscientists and taste testers of Aurinko Healthcare.",
+      "Aurinko® Golden Milk Latte is an unique blend of powerful extracts of Curcumin, Ginger, Cinnamon, Piper Nigrum, Turmerone essential oil fortified with Vitamin D₃ and natural milk ingredients. These Phytoactives enhances the value of milk and turns it a super health drink. Aurinko® Golden Milk Latte has been developed after extensive research by Phytoscientists and taste testers of Aurinko One Health.",
     segment: "Human OTC",
     type: "Powder",
     category: "Immunomodulator, Other Specialty",
@@ -1110,7 +1110,7 @@ const human_data = [
     id: 36,
     name: "5 Phyto-essentials with Extra Power of Vitamin D₃ and Natural Milk Ingredients",
     description:
-      "Golden Milk Latte Plus is a unique blend of powerful extracts of Curcumin, Ginger, Cinnamon for fied with Piper Nigrum, Turmerone essen al oil for fied with Vitamin D₃ and 5 gut ac ng probio cs. These Phyto ac ves enhances the value of milk and turns it a super health drink. Golden Milk Latte has been developed a er extensive research by Phyto scien sts and taste testers of Aurinko Healthcare.",
+      "Golden Milk Latte Plus is a unique blend of powerful extracts of Curcumin, Ginger, Cinnamon for fied with Piper Nigrum, Turmerone essen al oil for fied with Vitamin D₃ and 5 gut ac ng probio cs. These Phyto ac ves enhances the value of milk and turns it a super health drink. Golden Milk Latte has been developed a er extensive research by Phyto scien sts and taste testers of Aurinko One Health.",
     segment: "Human OTC",
     type: "Powder",
     category: "Immunomodulator, Other Specialty",

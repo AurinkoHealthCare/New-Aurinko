@@ -42,7 +42,7 @@ const ManufacturingFacility = () => {
             <br />
             <br />
             <p className="text-gray-700 mb-4 text-lg">
-              Aurinko Healthcare currently operates two manufacturing sites in Ballabhgarh, Faridabad, India.
+              Aurinko One Health currently operates two manufacturing sites in Ballabhgarh, Faridabad, India.
             </p>
             <p className="text-gray-700 mb-4 text-lg">
               The manufacturing units have two production buildings and one pharma suit with a total production capacity of more than 100 tons per month.
@@ -51,7 +51,7 @@ const ManufacturingFacility = () => {
               Aurinko is a commercial-scale manufacturer of probiotic, phytochemical, and food-grade supplement formulations in powder, liquid, capsule, and tablet forms.
             </p>
             <p className="text-gray-700 text-lg">
-              Aurinko Healthcare manufacturing unit areas comply with class 10,000 clean air requirement.
+              Aurinko One Health manufacturing unit areas comply with class 10,000 clean air requirement.
             </p>
           </div>
         </div>

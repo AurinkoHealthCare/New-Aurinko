@@ -114,6 +114,7 @@ import Blogs from './Admin/Pages/Pages/Media/Blogs';
 import Article from './Admin/Pages/Pages/Media/Articles';
 import Video from './Admin/Pages/Pages/Media/Videos';
 import Feedback from './Admin/Pages/Feedback/Feedback';
+import Ingredient from './Admin/Pages/Pages/Ingredients/Ingredients';
 
 function App() {
   return (
@@ -235,6 +236,9 @@ function App() {
           {/* Agriculture */}
           <Route path='/dashboard/nanofertilizer' element={<NanoFertilizer />} />
           <Route path='/dashboard/soilmineral' element={<Soilmineral />} />
+
+          {/* Ingredients */}
+          <Route path='/dashboard/ingredients' element={<Ingredient />} />
 
           {/* Media */}
           <Route path='/dashboard/Reports' element={<Report />} />

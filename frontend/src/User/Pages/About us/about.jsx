@@ -22,9 +22,9 @@ const About = () => {
       <div className="px-10 py-8 md:px-14 lg:px-20">
         <section className="mt-6">
           <Paragraph>
-            Aurinko Healthcare is an innovation driven pharmaceutical and nanobiotechnology company incorporated
+            Aurinko One Health is an innovation driven pharmaceutical and nanobiotechnology company incorporated
             on 21st November 2014, received Start up recognition and certification from Department of Industrial
-            Policy and Promotion, Govt. of India. Aurinko Healthcare is a WHO-GMP, FSSAI, APEDA and HACCP certified
+            Policy and Promotion, Govt. of India. Aurinko One Health is a WHO-GMP, FSSAI, APEDA and HACCP certified
             company with ISO 9001-2015, ISO 22000-2018 certifications received for robust management systems.
           </Paragraph>
           <Paragraph>
@@ -33,7 +33,7 @@ const About = () => {
             development and business finance with over 30 years of rich domain experience.
           </Paragraph>
           <Paragraph>
-            Aurinko Healthcare is a member of elite business regulatory bodies of India i.e. Federation of Indian
+            Aurinko One Health is a member of elite business regulatory bodies of India i.e. Federation of Indian
             Chamber of Commerce and Industry, Federation of Indian Export Organizations, Pharmaceutical Export
             Promotion Council, PHD Chamber of Commerce and Spice Board of India.
           </Paragraph>
@@ -51,7 +51,7 @@ const About = () => {
             oils, fresh and sun dried fruits and vegetables as consumables to it’s elite customers.
           </Paragraph>
           <Paragraph>
-            In line with the global research, Aurinko Healthcare is developing new concepts and solutions in preventive
+            In line with the global research, Aurinko One Health is developing new concepts and solutions in preventive
             nutrition and nanobiotechnology segment to prevent and control the economically important animal
             diseases and conditions i.e. mastitis, metritis, anoestrus and repeat breeding; and working towards
             “disease free and antibiotic free farming concept”. Essential oils, phytochemicals, probiotics and high value
@@ -59,7 +59,7 @@ const About = () => {
             an innovation in animal nutrition with carbon technology nano-minerals.
           </Paragraph>
           <Paragraph>
-            Aurinko Healthcare is well equipped with research, formulation development, quality control and quality
+            Aurinko One Health is well equipped with research, formulation development, quality control and quality
             assurance systems to develop specialized and technologically advanced nutritional and organic concepts
             through in-house, contract research as well as partnership/collaboration with leading research institutes.
           </Paragraph>
@@ -70,7 +70,7 @@ const About = () => {
             copyrights for its product portfolio.
           </Paragraph>
           <Paragraph>
-            Aurinko Healthcare is also delivering the values to the consumers, professionals and farmers beyond India
+            Aurinko One Health is also delivering the values to the consumers, professionals and farmers beyond India
             by exporting it’s quality products to South and South-East Asia, SAARC, Gulf, Middle-East and African
             regions.
           </Paragraph>

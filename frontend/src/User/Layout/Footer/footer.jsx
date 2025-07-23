@@ -50,7 +50,7 @@ const Footer = () => {
 
             <div>
               <h5 className="font-semibold mb-2">India Head Office</h5>
-              <p className="mb-2 font-semibold">Aurinko Healthcare Private Limited</p>
+              <p className="mb-2 font-semibold">Aurinko One Health Private Limited</p>
               <p>
                 <i className="fas fa-map-marker-alt mr-2"></i>
                 <Link to="https://maps.app.goo.gl/26BJUNAtfpp1FtMr6" target="_blank" className="hover:text-orange-400 transition">
@@ -64,7 +64,7 @@ const Footer = () => {
             <div>
               <h5 className="font-semibold mb-2">Zimbabwe</h5>
               <p className="mb-2 font-semibold">
-                Aurinko Healthcare Zimbabwe Private Limited
+                Aurinko One Health Zimbabwe Private Limited
               </p>
               <p>
                 <i className="fas fa-map-marker-alt mr-2"></i>
@@ -79,7 +79,7 @@ const Footer = () => {
             <div>
               <h5 className="font-semibold mb-2">Korea</h5>
                <p className="mb-2 font-semibold">
-                Aurinko Healthcare Korea Private Limited
+                Aurinko One Health Korea Private Limited
               </p>
               <p>
                 <i className="fas fa-map-marker-alt mr-2"></i>

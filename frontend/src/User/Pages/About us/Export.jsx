@@ -39,7 +39,7 @@ const Export = () => {
           <h2 className="text-2xl font-bold mb-4">Global Presence</h2>
           <div className="w-12 h-1 bg-orange-500 mb-6"></div>
           <p className="mb-6">
-            Aurinko Healthcare markets veterinary and human healthcare products across the globe,
+            Aurinko One Health markets veterinary and human healthcare products across the globe,
             with primary focus in South and South-East Asia, SAARC, Gulf, Middle-East, and African regions.
             We have dedicated manufacturing units in India to develop products suited to meet the diverse needs
             and preferences of consumers in different markets.

@@ -180,7 +180,7 @@ const Navbar = () => {
                                 </div>
 
                                 {/* Ingredients */}
-                                <Link to={"/dashboard/"}><button className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded">Ingredients</button></Link>
+                                <Link to={"/dashboard/ingredients"}><button className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded">Ingredients</button></Link>
 
                                 {/* Media */}
                                 <div>
