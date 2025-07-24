@@ -17,7 +17,6 @@ const ManufacturingFacility = () => {
           src="/Assets/banner/Manufactring facility.jpg"
           alt="Manufacturing facility background"
           className="w-full h-[500px] object-cover"
-          loading="lazy"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <h1 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold">
@@ -33,7 +32,6 @@ const ManufacturingFacility = () => {
               src="/Assets/Manufactring facilities/Automatic-Bottle-Filling-machine.jpg"
               alt="Manufacturing process"
               className="w-full h-auto rounded shadow"
-              loading="lazy"
             />
           </div>
           <div className="md:w-1/2 mt-8 md:mt-0">
@@ -63,7 +61,6 @@ const ManufacturingFacility = () => {
                 src={img}
                 alt={`Manufacturing process ${index + 1}`}
                 className="w-full h-auto rounded shadow-inner border-2 border-gray-200"
-                loading="lazy"
               />
             </div>
           ))}

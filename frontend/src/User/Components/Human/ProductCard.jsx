@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
   const [activeTab, setActiveTab] = useState("General Info");
 
   return (
-    <div className="flex flex-col md:flex-row w-full max-w-full max-h-full bg-white border overflow-hidden">
+    <div className="flex flex-col md:flex-row w-full max-w-full max-h-full bg-white border border-[#e5e7eb] overflow-hidden">
       <div className="md:w-1/3 h-full w-full p-2 flex justify-center ">
         <img
           src={product.Productimg}
@@ -22,13 +22,13 @@ const ProductCard = ({ product }) => {
           className="h-64 w-64 md:h-80 md:w-80 object-cover rounded-lg"
         />
       </div>
-      <div className="md:w-2/3 w-full p-3 flex flex-col border">
+      <div className="md:w-2/3 w-full p-3 flex flex-col border border-[#e5e7eb]">
         <img
           src={product.Productname}
           alt="Product Thumbnail"
           className="h-16 w-64 md:h-20 md:w-72 rounded-lg mb-2 object-contain"
         />
-        <div className="flex flex-wrap border-b pb-2">
+        <div className="flex flex-wrap border-b border-[#e5e7eb] pb-2">
           {tabs.map((label) => (
             <button
               key={label}
