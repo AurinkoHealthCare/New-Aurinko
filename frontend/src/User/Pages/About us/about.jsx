@@ -1,10 +1,10 @@
-
 const Paragraph = ({ children }) => (
   <p className="text-sm md:text-base lg:text-lg p-3 md:p-4 text-zinc-800">{children}</p>
 );
 
 const About = () => {
   return (
+   
     <div className="font-sans">
       <div className="relative">
         <img
@@ -74,6 +74,7 @@ const About = () => {
             by exporting it’s quality products to South and South-East Asia, SAARC, Gulf, Middle-East and African
             regions.
           </Paragraph>
+      
         </section>
       </div>
     </div>
