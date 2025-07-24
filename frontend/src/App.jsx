@@ -120,6 +120,7 @@ import Feedback from './Admin/Pages/Feedback/Feedback';
 
 // Ingredients
 import Ingredient from './Admin/Pages/Pages/Ingredients/Ingredients';
+import ImageManager from './Admin/Pages/Pages/Home/imagesliderlist';
 
 // Contact
 import Contact from './Admin/Pages/Pages/Contact Us/Contact us';
@@ -255,11 +256,12 @@ function App() {
 
           {/* Contact */}
           <Route path='/dashboard/contact' element={<Contact />} />
-
           {/* Feedback */}
           <Route path='/dashboard/feedback' element={<Feedback />} />
         </Route>
         <Route path="/unauthorized" element={<Unauthorized />} />
+          <Route path='/img' element={<ImageManager />} />
+
       </Routes>
     </div>
   );

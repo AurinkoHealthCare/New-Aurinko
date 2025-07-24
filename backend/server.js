@@ -4,11 +4,13 @@ const MongoDB=require('./config/dataBase')
 const cookieParser = require('cookie-parser');
 const cors = require("cors");
 
+dotenv.config();
+
+
 // require file
 const authRoutes = require("./router/adminroutes/adminrouter");
+const imageRoutes = require('./router/imagesliderrouter/imagesliderrouter');
 
-// dotenv config
-dotenv.config();
 MongoDB()
 
 
@@ -26,7 +28,11 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Test Route
+
+// authroute
 app.use("/api/auth", authRoutes);
+// imagesliderroute
+app.use('/api/images', imageRoutes);
 
 // Start Server
 app.listen(PORT, () => {
