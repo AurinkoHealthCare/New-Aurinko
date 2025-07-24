@@ -1,114 +1,140 @@
 import React, { useState } from "react";
 
 const Block1 = () => {
-    const [formData, setFormData] = useState({
-        tagline: "",
-        firstPara: "",
-        secondPara: "",
-        image: null,
+  const [heading, setHeading] = useState("");
+  const [items, setItems] = useState([
+    { image: null, name: "", rating: "", category: "", preview: "" },
+  ]);
+
+  const handleImageChange = (e, index) => {
+    const file = e.target.files[0];
+    const newItems = [...items];
+    newItems[index].image = file;
+    newItems[index].preview = URL.createObjectURL(file);
+    setItems(newItems);
+  };
+
+  const handleChange = (e, index) => {
+    const { name, value } = e.target;
+    const newItems = [...items];
+    newItems[index][name] = value;
+    setItems(newItems);
+  };
+
+  const handleAddMore = () => {
+    if (items.length >= 5) {
+      alert("❌ Maximum 5 items allowed");
+      return;
+    }
+    setItems([
+      ...items,
+      { image: null, name: "", rating: "", category: "", preview: "" },
+    ]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("📋 Aurinko Healthcare Submission:");
+    console.log("Heading:", heading);
+    items.forEach((item, index) => {
+      console.log(`Item ${index + 1}`);
+      console.log("Name:", item.name);
+      console.log("Rating:", item.rating);
+      console.log("Category:", item.category);
+      console.log("Image:", item.image);
     });
+    alert("✅ Data saved successfully!");
+  };
 
-    const [preview, setPreview] = useState(null);
+  return (
+    <div className="p-6 max-w-4xl mx-auto pt-0">
+      <h2 className="text-2xl font-bold mb-4 text-center text-green-800">
+        GLOBAL PROVIDER OF HUMAN NUTRACEUTICALS
+      </h2>
 
-    const handleChange = (e) => {
-        const { name, value, files } = e.target;
-        if (name === "image" && files[0]) {
-            setFormData({ ...formData, image: files[0] });
-            setPreview(URL.createObjectURL(files[0]));
-        } else {
-            setFormData({ ...formData, [name]: value });
-        }
-    };
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={heading}
+          onChange={(e) => setHeading(e.target.value)}
+          placeholder="Enter Heading"
+          className="w-full border p-2 rounded mb-6"
+          required
+        />
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("🚀 Form Submitted:");
-        console.log("Tagline:", formData.tagline);
-        console.log("First Paragraph:", formData.firstPara);
-        console.log("Second Paragraph:", formData.secondPara);
-        console.log("Image File:", formData.image);
-    };
+        {items.map((item, index) => (
+          <div key={index} className="border rounded p-4 mb-6 shadow-sm">
+            <h3 className="font-semibold mb-2">Product {index + 1}</h3>
 
-    return (
-        <div className="max-w-2xl mx-auto p-8">
-            <h2 className="text-3xl font-bold text-center mb-8 text-blue-600">First part of Aurinko One Health</h2>
+            {item.preview && (
+              <img
+                src={item.preview}
+                alt="Preview"
+                className="w-32 h-32 object-cover mb-2 rounded border"
+              />
+            )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Tagline */}
-                <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Tagline</label>
-                    <input
-                        type="text"
-                        name="tagline"
-                        value={formData.tagline}
-                        onChange={handleChange}
-                        placeholder="Welcome to Aurinko One Health"
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                        required
-                    />
-                </div>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => handleImageChange(e, index)}
+              className="mb-2"
+              required
+            />
 
-                {/* First Paragraph */}
-                <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">First Paragraph</label>
-                    <textarea
-                        name="firstPara"
-                        value={formData.firstPara}
-                        onChange={handleChange}
-                        rows="4"
-                        placeholder="Aurinko One Health is an innovation ..."
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                        required
-                    ></textarea>
-                </div>
+            <input
+              type="text"
+              name="name"
+              value={item.name}
+              onChange={(e) => handleChange(e, index)}
+              placeholder="Product Name"
+              className="w-full border p-2 rounded mb-2"
+              required
+            />
 
-                {/* Second Paragraph */}
-                <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Second Paragraph</label>
-                    <textarea
-                        name="secondPara"
-                        value={formData.secondPara}
-                        onChange={handleChange}
-                        rows="4"
-                        placeholder="Promoters of this..."
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                        required
-                    ></textarea>
-                </div>
+            <input
+              type="number"
+              name="rating"
+              value={item.rating}
+              onChange={(e) => handleChange(e, index)}
+              placeholder="Rating (1-5)"
+              min="1"
+              max="5"
+              className="w-full border p-2 rounded mb-2"
+              required
+            />
 
-                {/* Image Upload */}
-                <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1">Upload Image</label>
-                    <input
-                        type="file"
-                        name="image"
-                        accept="image/*"
-                        onChange={handleChange}
-                        className="w-full file:border-0 file:px-4 file:py-2 file:rounded-lg file:bg-blue-100 hover:file:bg-blue-200"
-                        required
-                    />
-                    {preview && (
-                        <img
-                            src={preview}
-                            alt="Preview"
-                            className="mt-4 h-40 object-contain rounded-lg border"
-                        />
-                    )}
-                </div>
+            <input
+              type="text"
+              name="category"
+              value={item.category}
+              onChange={(e) => handleChange(e, index)}
+              placeholder="Category"
+              className="w-full border p-2 rounded"
+              required
+            />
+          </div>
+        ))}
 
-                {/* Submit Button */}
-                <div>
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md"
-                    >
-                        Submit ✅
-                    </button>
-                </div>
-            </form>
+        <div className="flex justify-between items-center">
+          <button
+            type="button"
+            onClick={handleAddMore}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            ➕ Add More
+          </button>
+
+          <button
+            type="submit"
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          >
+            ✅ Save
+          </button>
         </div>
-    );
+      </form>
+    </div>
+  );
 };
 
 export default Block1;
-    

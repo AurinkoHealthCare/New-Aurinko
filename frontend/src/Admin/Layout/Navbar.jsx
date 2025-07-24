@@ -24,19 +24,19 @@ const Navbar = () => {
         }));
     };
     const handleLogout = async () => {
-  try {
-    // Clear cookie from server
-    await axios.post("/auth/logout", { withCredentials: true });
+        try {
+            // Clear cookie from server
+            await axios.post("/auth/logout", { withCredentials: true });
 
-    // Remove local token (if any)
-    localStorage.removeItem("token");
+            // Remove local token (if any)
+            localStorage.removeItem("token");
 
-    // Navigate to login or home
-    navigate("/");
-  } catch (error) {
-    console.error("Logout failed:", error);
-  }
-};
+            // Navigate to login or home
+            navigate("/");
+        } catch (error) {
+            console.error("Logout failed:", error);
+        }
+    };
 
     return (
         <div className="flex">
@@ -102,7 +102,6 @@ const Navbar = () => {
                                             <Link to={"/dashboard/block1"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 1</button></Link>
                                             <Link to={"/dashboard/block2"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 2</button></Link>
                                             <Link to={"/dashboard/block3"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 3</button></Link>
-                                            <Link to={"/dashboard/block4"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 4</button></Link>
                                         </div>
                                     )}
                                 </div>

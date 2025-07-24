@@ -49,7 +49,7 @@ const Block2 = () => {
   return (
     <div className="p-6 max-w-4xl mx-auto pt-0">
       <h2 className="text-2xl font-bold mb-4 text-center text-green-800">
-        GLOBAL PROVIDER OF HUMAN NUTRACEUTICALS
+        GLOBAL PROVIDER OF ANIMAL FEED SUPPLEMENTS
       </h2>
 
       <form onSubmit={handleSubmit}>

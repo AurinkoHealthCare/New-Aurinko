@@ -82,7 +82,6 @@ import Certificate from './Admin/Pages/Pages/About us/Certificates';
 import Block1 from './Admin/Pages/Pages/Home/Block 1';
 import Block2 from './Admin/Pages/Pages/Home/Block 2';
 import Block3 from './Admin/Pages/Pages/Home/Block 3';
-import Block4 from './Admin/Pages/Pages/Home/Block 4';
 import ImageSlider from './Admin/Pages/Pages/Home/Image Slider';
 
 // Human
@@ -208,7 +207,6 @@ function App() {
           <Route path='/dashboard/block1' element={<Block1 />} />
           <Route path='/dashboard/block2' element={<Block2 />} />
           <Route path='/dashboard/block3' element={<Block3 />} />
-          <Route path='/dashboard/block4' element={<Block4 />} />
 
           {/* About us */}
           <Route path='/dashboard/overview' element={<Overview />} />
