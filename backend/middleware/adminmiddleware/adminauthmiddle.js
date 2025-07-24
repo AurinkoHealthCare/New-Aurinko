@@ -1,42 +1,28 @@
-// backend/middleware/adminmiddleware/adminauthmiddle.js
-const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'mysecretkey';
+const jwt = require("jsonwebtoken");
 
 const verifyToken = (req, res, next) => {
-  const token = req.cookies.token;
-
+  const token = req.cookies.token || req.headers.authorization?.split(" ")[1];
   if (!token) {
-    return res.status(401).json({ message: 'Access denied. No token provided.' });
+    return res.status(401).json({ message: "Access denied. No token provided." });
   }
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded; // attach decoded user info to req
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
     next();
   } catch (err) {
-    return res.status(400).json({ message: 'Invalid token.' });
+    return res.status(401).json({ message: "Invalid token." });
   }
 };
 
 const verifyAdmin = (req, res, next) => {
-  const token = req.cookies.token;
-
-  if (!token) {
-    return res.status(401).json({ message: 'Access denied. No token provided.' });
+  if (req.user?.role !== "admin") {
+    return res.status(403).json({ message: "Access denied. Admins only." });
   }
-
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-
-    if (decoded.role !== 'admin2') {
-      return res.status(403).json({ message: 'Access denied. Admins only.' });
-    }
-
-    req.user = decoded;
-    next();
-  } catch (err) {
-    return res.status(400).json({ message: 'Invalid token.' });
-  }
+  next();
 };
 
-module.exports = { verifyToken, verifyAdmin };
+module.exports = {
+  verifyToken,
+  verifyAdmin
+};

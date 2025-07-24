@@ -180,10 +180,10 @@ function App() {
         </Route>
 
         {/* Admin */}
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/AurinkoOne" element={<Admin />} />
         <Route path="/dashboard" element={
           <PrivateRoute
-            allowedRoles={["admin2"]}>
+            allowedRoles={["admin"]}>
             <Dashboard />
           </PrivateRoute>
         }
