@@ -112,7 +112,6 @@ import Article from './Admin/Pages/Pages/Media/Articles';
 import Video from './Admin/Pages/Pages/Media/Videos';
 import Feedback from './Admin/Pages/Feedback/Feedback';
 import Ingredient from './Admin/Pages/Pages/Ingredients/Ingredients';
-import ImageManager from './Admin/Pages/Pages/Home/imagesliderlist';
 
 function App() {
   return (
@@ -249,7 +248,6 @@ function App() {
           <Route path='/dashboard/feedback' element={<Feedback />} />
         </Route>
         <Route path="/unauthorized" element={<Unauthorized />} />
-          <Route path='/img' element={<ImageManager />} />
 
       </Routes>
     </div>
