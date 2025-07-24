@@ -26,7 +26,7 @@ const Navbar = () => {
     const handleLogout = async () => {
   try {
     // Clear cookie from server
-    await axios.get("/auth/logout", { withCredentials: true });
+    await axios.post("/auth/logout", { withCredentials: true });
 
     // Remove local token (if any)
     localStorage.removeItem("token");
