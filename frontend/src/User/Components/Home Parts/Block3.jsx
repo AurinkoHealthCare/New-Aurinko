@@ -4,8 +4,8 @@ import { productTypes } from "../../Data/data";
 const Block3 = () => {
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center py-12 px-4 md:px-8 lg:px-16 xl:px-24">
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-green-800">
-        PRODUCT <span className="text-orange-600">TYPES</span>
+      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 text-orange-600">
+        PRODUCT TYPES
       </h1>
       <div
         className="h-1 w-48 md:w-56 lg:w-64 xl:w-72 rounded"

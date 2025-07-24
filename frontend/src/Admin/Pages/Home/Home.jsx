@@ -35,7 +35,7 @@ const Dash_Home = () => {
   ];
 
   return (
-    <div className="p-6 md:p-10 bg-gray-50 min-h-screen">
+    <div className="p-6 md:p-10 min-h-screen">
       <h1 className="text-3xl font-bold mb-8 text-gray-800">📊 Dashboard Overview</h1>
 
       {/* Cards */}

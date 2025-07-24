@@ -19,8 +19,8 @@ const Block7 = () => {
   return (
     <div className="flex flex-col items-center justify-center py-10 px-6 md:px-8 lg:px-12">
       <div className="flex flex-col items-center justify-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-green-800">
-          Review <span className="text-orange-600">And Feedback</span>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-orange-600">
+          Review And Feedback
         </h1>
         <div className="h-1 w-52 md:w-64 lg:w-72 xl:w-96 rounded-full mt-2 bg-gradient-to-r from-orange-600 to-green-800"></div>
       </div>

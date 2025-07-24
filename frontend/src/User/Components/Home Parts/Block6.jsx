@@ -10,8 +10,8 @@ const Block6 = () => {
   return (
     <div className="flex flex-col items-center justify-center py-12 px-6 md:px-10 lg:px-16">
       <div className="text-center">
-        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-orange-600">
-          GET IN <span className="text-green-800">TOUCH</span>
+        <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-green-800">
+          GET IN TOUCH
         </h1>
         <div
           className="h-1 w-32 md:w-40 lg:w-48 xl:w-56 rounded-full mx-auto mt-2"

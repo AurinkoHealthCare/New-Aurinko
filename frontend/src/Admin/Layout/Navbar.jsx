@@ -103,9 +103,6 @@ const Navbar = () => {
                                             <Link to={"/dashboard/block2"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 2</button></Link>
                                             <Link to={"/dashboard/block3"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 3</button></Link>
                                             <Link to={"/dashboard/block4"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 4</button></Link>
-                                            <Link to={"/dashboard/block5"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 5</button></Link>
-                                            <Link to={"/dashboard/block6"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 6</button></Link>
-                                            <Link to={"/dashboard/block7"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 7</button></Link>
                                         </div>
                                     )}
                                 </div>

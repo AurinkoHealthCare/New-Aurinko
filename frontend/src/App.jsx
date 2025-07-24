@@ -80,9 +80,6 @@ import Block1 from './Admin/Pages/Pages/Home/Block 1';
 import Block2 from './Admin/Pages/Pages/Home/Block 2';
 import Block3 from './Admin/Pages/Pages/Home/Block 3';
 import Block4 from './Admin/Pages/Pages/Home/Block 4';
-import Block5 from './Admin/Pages/Pages/Home/Block 5';
-import Block6 from './Admin/Pages/Pages/Home/Block 6';
-import Block7 from './Admin/Pages/Pages/Home/Block 7';
 import ImageSlider from './Admin/Pages/Pages/Home/Image Slider';
 //Human
 import Nanophosphosomes from './Admin/Pages/Pages/Humen/Nanophosphosomes';
@@ -201,9 +198,6 @@ function App() {
           <Route path='/dashboard/block2' element={<Block2 />} />
           <Route path='/dashboard/block3' element={<Block3 />} />
           <Route path='/dashboard/block4' element={<Block4 />} />
-          <Route path='/dashboard/block5' element={<Block5 />} />
-          <Route path='/dashboard/block6' element={<Block6 />} />
-          <Route path='/dashboard/block7' element={<Block7 />} />
 
           {/* About us */}
           <Route path='/dashboard/overview' element={<Overview />} />
