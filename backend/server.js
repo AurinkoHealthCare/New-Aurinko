@@ -3,17 +3,13 @@ const dotenv = require('dotenv');
 const MongoDB=require('./config/dataBase')
 const cookieParser = require('cookie-parser');
 const cors = require("cors");
-
+// .env
 dotenv.config();
-
-
 // require file
 const authRoutes = require("./router/adminroutes/adminrouter");
 const imageRoutes = require('./router/imagesliderrouter/imagesliderrouter');
 
 MongoDB()
-
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
