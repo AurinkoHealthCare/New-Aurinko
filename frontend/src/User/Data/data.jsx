@@ -13,8 +13,7 @@ export const block2Data = [
     title: "Auricur Plus",
     segment: "Health Supplements",
     rating: 4.5,
-    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
-
+    summery: "Auricur Plus is a synergistic combination of Curcumin Nanophosphosome® (a nano-emulsified Curcumin Phosphatidyl Choline-Serine-Ethanolamine complex) and Tinospora cordifolia with technologically advanced bioenhancer and metabolic potentiator technology. Bioenhancer and metabolic activator technology enhances the passive diffusion and active transport mechanism through intestinal microvilli to improve Tinospora cordifolia absorption as well prevents its metabolic reduction through inhibition of P-gp efflux pump, ATPase activity, CYP3A4, CYP3AG and UGT.",
   },
   {
     id: 3,
@@ -22,8 +21,7 @@ export const block2Data = [
     title: "Reintoni",
     segment: "Health Supplements",
     rating: 4.0,
-    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
-
+    summery: "Reintoni is a powerful probio cs formula on enriched with 3 probio cs i.e Lactobacillus acidophilus, Bifidobacterium longum, Streptococcus thermophilus which improves Kidney filtra on func on and health and Fructooligosaccharide (FOS) that reduces inflamma on, kidney failure risk and nephrotoxicity.",
   },
   {
     id: 4,
@@ -31,8 +29,7 @@ export const block2Data = [
     title: "Wellness Honey enriched with Shilajit",
     segment: "Health Supplements",
     rating: 4.0,
-    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
-
+    summery: "Wellness Honey enriched with Shilajit improves physical endurance, male fertility, hormonal functions and immune system to keep strong and healthy.",
   },
   {
     id: 5,
@@ -40,7 +37,7 @@ export const block2Data = [
     title: "Quadrical",
     segment: "Health Supplements",
     rating: 4.5,
-    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+    summery: "Quadrical® is a unique and advanced blend of technologically superior extract of Cissus quadrangularis (Phyto Biocalphos® Technology) and probio cs for improved growth and bone health.",
 
   }
 ];
@@ -52,8 +49,7 @@ export const block5Data = [
     title: "Auriplanta",
     segment: "LiveStock",
     rating: 4.5,
-    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
-
+    summery: "Auriplanta is an all natural advanced formulation enriched with natural plant extracts for the management of placenta retention problem in cattles.",
   },
   {
     id: 2,
@@ -62,8 +58,7 @@ export const block5Data = [
     title: "Nomino",
     segment: "LiveStock & Poultry",
     rating: 4.0,
-    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
-
+    summery: "Nomino is an advanced combination of organic minerals, essential amino acids, nucleotides, vitamins, electrolytes, fatty acids and grape polyphenols to improve immunity, alleviate stress, improve growth and production in birds and animals.",
   },
   {
     id: 3,
@@ -72,8 +67,7 @@ export const block5Data = [
     title: "Metagrow WS",
     segment: "Poultry",
     rating: 4.5,
-    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
-
+    summery: "Metagrow–WS is a postbiotic blend enriched with enzymes, metabolic activators, antioxidants and immunogens of Saccharomyces and Bacillus probiotics.Metagrow–WS stimulates the growth, weight gain and Food Conversion Ratio (FCR) in poultry, reduces the chance of diseases, improves health and reduces mortality in birds.",
   },
   {
     id: 4,
@@ -82,8 +76,7 @@ export const block5Data = [
     title: "Yeco Nanophosphosome®",
     segment: "Poultry",
     rating: 4.0,
-    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
-
+    summery: "Yeco Nanophosphosome® is a nano emulsified Lutein-Zeaxanthin Phosphatidylcholine Ethanolamine-Inositol-Serine Complex enriched with bioenhancer and metabolic potentiator technology. Yeco Nanophosphosome® (Lutein-Zeaxanthin Nanophosphosome®) easily crosses the gut barrier resulting in significantly higher blood levels of lutein and zeaxanthin. potentiated phospholipid complex acts as carrier mediated transport system, which directs lutein and zeaxanthin to reach the systemic circulation with enhanced bioavailability. Bioenhancer and metabolic potentiator technology enhances the permeability of intestinal microvilli and improves absorption as well prevents it’s metabolic reduction through invention of P-gp, CYP3AG and UGT Yeco Nanophosphosome® provides consistent and uniform color for egg yolk, broiler skin and improves health and immunity.",
   },
   {
     id: 5,
@@ -92,8 +85,7 @@ export const block5Data = [
     title: "Turbogil vet",
     segment: "Livestock",
     rating: 4.5,
-    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
-
+    summery: "Turbogil vet is an all-natural potentiated probiotics, prebiotic, enzymes, vitamins, immunomodulator & trace minerals containing bolus with proven sialagogue and rumino-reticular stimulant action required in prolonged cases of anorexia.",
   }
 ];
 export const productTypes = [

@@ -74,9 +74,9 @@ const Block5 = () => {
                 <h3 className="text-lg font-semibold text-gray-800">
                   {item.title}
                 </h3>
-                <span className="mt-3 text-sm font-medium px-3 py-1">
+                <div className="mt-3 text-sm font-medium px-1 py-1 max-h-80 text-left overflow-y-auto no-scrollbar">
                   {item.summery}
-                </span>
+                </div>
               </div>
             </div>
           </div>
