@@ -4,7 +4,6 @@ import Block3 from "../../Components/Home Parts/Block3";
 import Block4 from "../../Components/Home Parts/Block4";
 import Block5 from "../../Components/Home Parts/Block5";
 import Block6 from "../../Components/Home Parts/Block6";
-import Block7 from "../../Components/Home Parts/Block7";
 import ImageSlider from "../../Components/Home Parts/ImageSlider";
 
 
@@ -18,7 +17,6 @@ const Home = () => {
       <Block4 />
       <Block5 />
       <Block6 />
-      <Block7 />
     </div>
   );
 };

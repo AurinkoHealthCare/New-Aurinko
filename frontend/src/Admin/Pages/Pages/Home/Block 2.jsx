@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const Block2 = () => {
   const [heading, setHeading] = useState("");
+  const [summary, setSummary] = useState("");
   const [items, setItems] = useState([
     { image: null, name: "", rating: "", category: "", preview: "" },
   ]);
@@ -36,6 +37,7 @@ const Block2 = () => {
     e.preventDefault();
     console.log("📋 Aurinko Healthcare Submission:");
     console.log("Heading:", heading);
+    console.log("Summary:", summary);
     items.forEach((item, index) => {
       console.log(`Item ${index + 1}`);
       console.log("Name:", item.name);
@@ -58,7 +60,7 @@ const Block2 = () => {
           value={heading}
           onChange={(e) => setHeading(e.target.value)}
           placeholder="Enter Heading"
-          className="w-full border p-2 rounded mb-6"
+          className="w-full border p-2 rounded mb-4"
           required
         />
 
@@ -110,11 +112,23 @@ const Block2 = () => {
               value={item.category}
               onChange={(e) => handleChange(e, index)}
               placeholder="Category"
+              className="w-full border p-2 rounded mb-2"
+              required
+            />
+
+            {/* ✅ Summary placed just below Category */}
+            <textarea
+              name="summary"
+              value={item.summary}
+              onChange={(e) => handleChange(e, index)}
+              placeholder="Summary"
               className="w-full border p-2 rounded"
+              rows="3"
               required
             />
           </div>
         ))}
+
 
         <div className="flex justify-between items-center">
           <button

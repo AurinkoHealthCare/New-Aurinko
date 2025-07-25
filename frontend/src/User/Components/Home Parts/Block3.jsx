@@ -22,20 +22,20 @@ const Block3 = () => {
         {productTypes.map((product, index) => (
           <div
             key={index}
-            className="relative group overflow-hidden rounded-2xl shadow-lg bg-white transition-transform duration-300 hover:scale-[1.02]"
+            className="relative overflow-hidden rounded-2xl shadow-lg bg-white transition-transform duration-300 hover:scale-[1.02] flex flex-col"
           >
             <img
               src={product.image}
               alt={product.alt}
-              className="w-full h-72 object-cover transition duration-300 ease-in-out group-hover:brightness-90"
+              className="w-full h-72 object-cover transition duration-300 ease-in-out"
             />
 
-            {/* Know More Button – shown on hover */}
+            {/* Button directly under image */}
             <button
               onClick={() => toggleOverlay(index)}
-              className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-5 py-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:scale-105 hover:shadow-xl hover:bg-orange-700 z-10"
+              className="mx-auto mt-4 mb-4 bg-orange-600 text-white px-5 py-2 rounded-full shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-orange-700 z-10"
             >
-              Know More
+              {activeIndex === index ? "Back" : "Know More"}
             </button>
 
             {/* Sliding Overlay with Details */}
@@ -44,7 +44,7 @@ const Block3 = () => {
                 activeIndex === index ? "translate-y-0" : "translate-y-full"
               }`}
             >
-              <div className="p-5 h-full overflow-y-auto no-scrollbar text-gray-800">
+              <div className="p-5 h-72 overflow-y-auto no-scrollbar text-gray-800 ">
                 <h2 className="text-xl font-bold mb-2 text-green-800">
                   {product.title}
                 </h2>
