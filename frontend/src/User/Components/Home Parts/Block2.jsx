@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import { block3Data } from "../../Data/data";
+import { block2Data } from "../../Data/data";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 const Block2 = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
   useEffect(() => {
-    block3Data.forEach((item) => {
+    block2Data.forEach((item) => {
       const img = new Image();
       img.src = item.hoverImage;
     });
@@ -32,46 +30,95 @@ const Block2 = () => {
   };
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center py-8 px-4 md:px-8 lg:px-12">
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 text-green-800">
+    <div className="py-16 px-2 md:px-6 lg:px-8">
+      {/* Heading */}
+      <div className="flex flex-col items-center justify-center mb-12">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-green-800 mb-4">
           GLOBAL PROVIDER OF HUMAN NUTRACEUTICALS
         </h1>
         <div
-          className="h-1 w-11/12 sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-6/12 max-w-6xl rounded"
+          className="h-1 w-64 rounded-full"
           style={{
-            background: "linear-gradient(to right, #ea580c, #15803d)"
+            background: "linear-gradient(to right, #ea580c, #15803d)",
           }}
         ></div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 py-6 px-4">
-        {block3Data.map((item, index) => (
-          <div
-            key={item.id}
-            className="w-full max-w-xs md:max-w-sm flex flex-col justify-between bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <div className="h-[75%]">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full"
-              />
-            </div>
-            <div
-              className={`text-center h-[25%] flex flex-col justify-center bg-gray-50 p-3 rounded-b-xl"
-                }`}
-            >
-              <h3 className="text-lg font-semibold text-gray-800">{item.title}</h3>
-              <div className="flex justify-center mt-1">{renderStars(item.rating)}</div>
-              <span className="mt-2 inline-block text-xs font-semibold px-3 py-1 rounded-full bg-green-100 text-green-700">
-                {item.segment}
-              </span>
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+        {block2Data.map((item, index) => (
+          <div key={item.id} className="flip-card w-full max-w-xs mx-auto">
+            <div className="flip-card-inner">
+              {/* Front */}
+              <div className="flip-card-front bg-white shadow-lg rounded-xl relative group overflow-hidden w-full max-w-xs mx-auto">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-72 object-cover"
+                />
+                <div className="flex flex-col justify-center items-center text-center">
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {item.title}
+                  </h3>
+                  <div className="flex justify-center mt-2">
+                    {renderStars(item.rating)}
+                  </div>
+                  <span className="mt-3 text-xs font-medium px-3 py-1 rounded-full bg-green-100 text-green-700">
+                    {item.segment}
+                  </span>
+                </div>
+              </div>
+
+              {/* Back */}
+              <div className="flip-card-back bg-white rounded-xl p-4 shadow-xl flex flex-col justify-center items-center text-center">
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {item.title}
+                </h3>
+                <span className="mt-3 text-sm font-medium px-3 py-1">
+                  {item.summery}
+                </span>
+              </div>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Flip Card Styling */}
+      <style>{`
+  .flip-card {
+    perspective: 1000px;
+    height: 420px; 
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.75rem;
+  }
+
+  .flip-card-front {
+    z-index: 2;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+`}</style>
     </div>
   );
 };
