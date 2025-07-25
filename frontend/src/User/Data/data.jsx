@@ -1,10 +1,11 @@
-export const block3Data = [
+export const block2Data = [
   {
     id: 1,
     image: "/Assets/Product images/Human/Health Supplements/auribery plus c.webp",
     title: "Auribery plus",
     segment: "Health Supplements",
     rating: 4.5,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
   },
   {
     id: 2,
@@ -12,6 +13,8 @@ export const block3Data = [
     title: "Auricur Plus",
     segment: "Health Supplements",
     rating: 4.5,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+
   },
   {
     id: 3,
@@ -19,6 +22,8 @@ export const block3Data = [
     title: "Reintoni",
     segment: "Health Supplements",
     rating: 4.0,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+
   },
   {
     id: 4,
@@ -26,6 +31,8 @@ export const block3Data = [
     title: "Wellness Honey enriched with Shilajit",
     segment: "Health Supplements",
     rating: 4.0,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+
   },
   {
     id: 5,
@@ -33,9 +40,11 @@ export const block3Data = [
     title: "Quadrical",
     segment: "Health Supplements",
     rating: 4.5,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+
   }
 ];
-export const block8Data = [
+export const block5Data = [
   {
     id: 1,
     image: "/Assets/Product images/Veterinary/Livestock/Auriplanta.webp",
@@ -43,6 +52,8 @@ export const block8Data = [
     title: "Auriplanta",
     segment: "LiveStock",
     rating: 4.5,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+
   },
   {
     id: 2,
@@ -51,6 +62,8 @@ export const block8Data = [
     title: "Nomino",
     segment: "LiveStock & Poultry",
     rating: 4.0,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+
   },
   {
     id: 3,
@@ -59,6 +72,8 @@ export const block8Data = [
     title: "Metagrow WS",
     segment: "Poultry",
     rating: 4.5,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+
   },
   {
     id: 4,
@@ -67,6 +82,8 @@ export const block8Data = [
     title: "Yeco Nanophosphosome®",
     segment: "Poultry",
     rating: 4.0,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+
   },
   {
     id: 5,
@@ -75,6 +92,8 @@ export const block8Data = [
     title: "Turbogil vet",
     segment: "Livestock",
     rating: 4.5,
+    summery: "Auribery Plus is an advanced formulation of gut-acting probiotics enriched with Cranberry extract to support Urinary Tract Health and reduce UTI symptoms like pH, inflammation, etc."
+
   }
 ];
 export const productTypes = [
