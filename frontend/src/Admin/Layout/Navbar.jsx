@@ -71,9 +71,9 @@ const Navbar = () => {
                         </button>
                         {openDropdown === "media" && (
                             <div className="ml-4 mt-1 space-y-2">
-                                <Link to={"/dashboard/banner"}><button className="block w-full text-left px-2 hover:bg-gray-700 rounded">Banner</button></Link>
-                                <Link to={"/dashboard/productimage"}><button className="block w-full text-left px-2 hover:bg-gray-700 rounded">Product Images</button></Link>
-                                <Link to={"/dashboard/productlogo"}><button className="block w-full text-left px-2 hover:bg-gray-700 rounded">Product Logo</button></Link>
+                                <Link to={"/dashboard/banner"}><button className="block w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Banner</button></Link>
+                                <Link to={"/dashboard/productimage"}><button className="block w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Product Images</button></Link>
+                                <Link to={"/dashboard/productlogo"}><button className="block w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Product Logo</button></Link>
                             </div>
                         )}
                     </div>
@@ -92,16 +92,16 @@ const Navbar = () => {
                                 <div>
                                     <button
                                         onClick={() => toggleNestedDropdown("pages", "Home")}
-                                        className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded"
+                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
                                     >
                                         Home <ChevronDown className="w-4 h-4" />
                                     </button>
                                     {nestedDropdown["pages"] === "Home" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/imageSlider"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Image Slider</button></Link>
-                                            <Link to={"/dashboard/block1"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 1</button></Link>
-                                            <Link to={"/dashboard/block2"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 2</button></Link>
-                                            <Link to={"/dashboard/block3"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Block 3</button></Link>
+                                            <Link to={"/dashboard/imageSlider"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Image Slider</button></Link>
+                                            <Link to={"/dashboard/block1"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Block 1</button></Link>
+                                            <Link to={"/dashboard/block2"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Block 2</button></Link>
+                                            <Link to={"/dashboard/block3"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Block 3</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -110,18 +110,18 @@ const Navbar = () => {
                                 <div>
                                     <button
                                         onClick={() => toggleNestedDropdown("pages", "About Us")}
-                                        className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded"
+                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
                                     >
                                         About Us <ChevronDown className="w-4 h-4" />
                                     </button>
                                     {nestedDropdown["pages"] === "About Us" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/overview"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Overview</button></Link>
-                                            <Link to={"/dashboard/Vision"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Vision & Mission</button></Link>
-                                            <Link to={"/dashboard/manufacturing"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Manufacturing Facility</button></Link>
-                                            <Link to={"/dashboard/research"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Research & Development</button></Link>
-                                            <Link to={"/dashboard/exporte"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Export</button></Link>
-                                            <Link to={"/dashboard/certificate"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Certificates</button></Link>
+                                            <Link to={"/dashboard/overview"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Overview</button></Link>
+                                            <Link to={"/dashboard/Vision"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Vision & Mission</button></Link>
+                                            <Link to={"/dashboard/manufacturing"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Manufacturing Facility</button></Link>
+                                            <Link to={"/dashboard/research"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Research & Development</button></Link>
+                                            <Link to={"/dashboard/exporte"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Export</button></Link>
+                                            <Link to={"/dashboard/certificate"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Certificates</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -130,18 +130,18 @@ const Navbar = () => {
                                 <div>
                                     <button
                                         onClick={() => toggleNestedDropdown("pages", "Human")}
-                                        className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded"
+                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
                                     >
                                         Human <ChevronDown className="w-4 h-4" />
                                     </button>
                                     {nestedDropdown["pages"] === "Human" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/nanophosphosomes"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
-                                            <Link to={"/dashboard/neunamins"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
-                                            <Link to={"/dashboard/neunaparticle"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
-                                            <Link to={"/dashboard/health_Supplements"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Health Supplements</button></Link>
-                                            <Link to={"/dashboard/personal_Care"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Personal Care</button></Link>
-                                            <Link to={"/dashboard/yeppuen "}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Yeppuen</button></Link>
+                                            <Link to={"/dashboard/nanophosphosomes"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
+                                            <Link to={"/dashboard/neunamins"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
+                                            <Link to={"/dashboard/neunaparticle"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
+                                            <Link to={"/dashboard/health_Supplements"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Health Supplements</button></Link>
+                                            <Link to={"/dashboard/personal_Care"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Personal Care</button></Link>
+                                            <Link to={"/dashboard/yeppuen "}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Yeppuen</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -150,22 +150,22 @@ const Navbar = () => {
                                 <div>
                                     <button
                                         onClick={() => toggleNestedDropdown("pages", "Veterinary")}
-                                        className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded"
+                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
                                     >
                                         Veterinary <ChevronDown className="w-4 h-4" />
                                     </button>
                                     {nestedDropdown["pages"] === "Veterinary" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/DVNanophosphosome"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
-                                            <Link to={"/dashboard/DVNeunamin"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
-                                            <Link to={"/dashboard/DVNeunaparticle"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
-                                            <Link to={"/dashboard/DVLivestock"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Livestock</button></Link>
-                                            <Link to={"/dashboard/DVPoultry"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Poultry</button></Link>
-                                            <Link to={"/dashboard/DVAqua"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Aqua</button></Link>
-                                            <Link to={"/dashboard/DVSwine"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Swine</button></Link>
-                                            <Link to={"/dashboard/DVEquine"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Equine</button></Link>
-                                            <Link to={"/dashboard/DVPet"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Pet</button></Link>
-                                            <Link to={"/dashboard/DVFeed_Grain"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Feed & Grain</button></Link>
+                                            <Link to={"/dashboard/DVNanophosphosome"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
+                                            <Link to={"/dashboard/DVNeunamin"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
+                                            <Link to={"/dashboard/DVNeunaparticle"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
+                                            <Link to={"/dashboard/DVLivestock"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Livestock</button></Link>
+                                            <Link to={"/dashboard/DVPoultry"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Poultry</button></Link>
+                                            <Link to={"/dashboard/DVAqua"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Aqua</button></Link>
+                                            <Link to={"/dashboard/DVSwine"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Swine</button></Link>
+                                            <Link to={"/dashboard/DVEquine"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Equine</button></Link>
+                                            <Link to={"/dashboard/DVPet"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Pet</button></Link>
+                                            <Link to={"/dashboard/DVFeed_Grain"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Feed & Grain</button></Link>
                                         </div>
                                     )}
                                 </div>
@@ -174,43 +174,43 @@ const Navbar = () => {
                                 <div>
                                     <button
                                         onClick={() => toggleNestedDropdown("pages", "Agriculture")}
-                                        className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded"
+                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
                                     >
                                         Agriculture <ChevronDown className="w-4 h-4" />
                                     </button>
                                     {nestedDropdown["pages"] === "Agriculture" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/nanofertilizer"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Nano Fertilizers</button></Link>
-                                            <Link to={"/dashboard/soilmineral"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Soil Minerals</button></Link>
+                                            <Link to={"/dashboard/nanofertilizer"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Nano Fertilizers</button></Link>
+                                            <Link to={"/dashboard/soilmineral"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Soil Minerals</button></Link>
                                         </div>
                                     )}
                                 </div>
 
                                 {/* Ingredients */}
-                                <Link to={"/dashboard/ingredients"}><button className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded">Ingredients</button></Link>
+                                <Link to={"/dashboard/ingredients"}><button className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded">Ingredients</button></Link>
 
                                 {/* Media */}
                                 <div>
                                     <button
                                         onClick={() => toggleNestedDropdown("pages", "Media")}
-                                        className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded"
+                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
                                     >
                                         Media <ChevronDown className="w-4 h-4" />
                                     </button>
                                     {nestedDropdown["pages"] === "Media" && (
                                         <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/Reports"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Reports</button></Link>
-                                            <Link to={"/dashboard/Gallery"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Gallery</button></Link>
-                                            <Link to={"/dashboard/Brochures"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Brochures</button></Link>
-                                            <Link to={"/dashboard/Blogs"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Blogs</button></Link>
-                                            <Link to={"/dashboard/Articles"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Articles</button></Link>
-                                            <Link to={"/dashboard/Videos"}><button className="w-full text-left px-2 hover:bg-gray-700 rounded">Videos</button></Link>
+                                            <Link to={"/dashboard/Reports"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Reports</button></Link>
+                                            <Link to={"/dashboard/Gallery"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Gallery</button></Link>
+                                            <Link to={"/dashboard/Brochures"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Brochures</button></Link>
+                                            <Link to={"/dashboard/Blogs"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Blogs</button></Link>
+                                            <Link to={"/dashboard/Articles"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Articles</button></Link>
+                                            <Link to={"/dashboard/Videos"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Videos</button></Link>
                                         </div>
                                     )}
                                 </div>
 
                                 {/* Contact Us */}
-                                <Link to={"/dashboard/contact"}><button className="flex justify-between items-center w-full px-2 hover:bg-gray-700 rounded">Contact Us</button></Link>
+                                <Link to={"/dashboard/contact"}><button className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded">Contact Us</button></Link>
                             </div>
                         )}
                     </div>
