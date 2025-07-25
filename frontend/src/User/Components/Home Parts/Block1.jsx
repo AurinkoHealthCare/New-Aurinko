@@ -22,7 +22,7 @@ const Block1 = () => {
       </div>
       <div className="relative w-full md:w-1/2 h-60 sm:h-72 md:h-80 lg:h-96 xl:h-[35rem] shadow-lg rounded-xl overflow-hidden">
         <img
-          src="/Assets/Aurinko Home 1.png"
+          src="/Assets/AurinkoHome1.png"
           alt="Aurinko Home"
           className="w-full h-full object-cover rounded-xl transition-all duration-1000 ease-in-out"
         />
