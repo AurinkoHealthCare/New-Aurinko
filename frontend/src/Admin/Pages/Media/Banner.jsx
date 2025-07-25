@@ -91,10 +91,11 @@ const Banner = () => {
                 className="relative w-full h-40 rounded overflow-hidden cursor-pointer group border bg-gray-50 mb-3"
               >
                 <img
-                  src={img.url}
+                  src={img.url.startsWith('http') ? img.url : `http://localhost:2026${img.url}`}
                   alt={`Image ${index + 1}`}
                   className="w-full h-full object-contain transition-transform duration-200 group-hover:scale-105"
                 />
+
                 <div className="absolute inset-0 bg-black bg-opacity-10 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-semibold">
                   Click to change
                 </div>
@@ -121,11 +122,10 @@ const Banner = () => {
                 <button
                   onClick={() => handleUpdate(img.no)}
                   disabled={loading[img.no]}
-                  className={`w-full px-3 py-1.5 text-sm font-medium rounded-lg transition duration-200 text-white ${
-                    loading[img.no] === 'updating'
+                  className={`w-full px-3 py-1.5 text-sm font-medium rounded-lg transition duration-200 text-white ${loading[img.no] === 'updating'
                       ? 'bg-yellow-400 cursor-not-allowed'
                       : 'bg-yellow-500 hover:bg-yellow-600'
-                  }`}
+                    }`}
                 >
                   {loading[img.no] === 'updating' ? 'Updating...' : 'Update'}
                 </button>
@@ -133,11 +133,10 @@ const Banner = () => {
                 <button
                   onClick={() => handleDelete(img.no)}
                   disabled={loading[img.no]}
-                  className={`w-full px-3 py-1.5 text-sm font-medium rounded-lg transition duration-200 text-white ${
-                    loading[img.no] === 'deleting'
+                  className={`w-full px-3 py-1.5 text-sm font-medium rounded-lg transition duration-200 text-white ${loading[img.no] === 'deleting'
                       ? 'bg-red-400 cursor-not-allowed'
                       : 'bg-red-600 hover:bg-red-700'
-                  }`}
+                    }`}
                 >
                   {loading[img.no] === 'deleting' ? 'Deleting...' : 'Delete'}
                 </button>

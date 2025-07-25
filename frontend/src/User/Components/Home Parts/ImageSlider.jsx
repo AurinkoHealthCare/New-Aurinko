@@ -53,11 +53,16 @@ export default function ImageSlider() {
     <div className="relative w-full mx-auto">
       <div className="relative w-full h-full overflow-hidden">
         <img
-          src={images[currentIndex].url}
+          src={
+            images[currentIndex].url.startsWith("http")
+              ? images[currentIndex].url
+              : `http://localhost:2026${images[currentIndex].url}`
+          }
           alt={`Slide ${currentIndex + 1}`}
           className="w-full h-full transition-transform duration-500 ease-in-out"
           loading="eager"
         />
+
       </div>
 
       {/* Left Button */}

@@ -35,7 +35,7 @@ const LoginPage = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/Assets/Aurinko Home 1.png"
+          src="/Assets/AurinkoHome1.png"
           alt="Background"
           className="w-full h-full object-cover filter blur-md brightness-50"
         />
