@@ -1,14 +1,15 @@
 const ImageSlider = require('../../model/imageslider/imagesliderschema');
-const { cloudinary } = require('../../cloudinary/cloudisetup');
+const fs = require('fs');
+const path = require('path');
 
-// ➕ Upload multiple images
+// ➕ Upload multiple images (local multer)
 const uploadImages = async (req, res) => {
   try {
     const uploadPromises = req.files.map(async (file, index) => {
       const no = await ImageSlider.countDocuments() + index + 1;
       return {
         no,
-        url: file.path,
+        url: `/uploads/${file.filename}`,
         public_id: file.filename,
       };
     });
@@ -22,7 +23,6 @@ const uploadImages = async (req, res) => {
   }
 };
 
-
 // 🔍 Get all images
 const getAllImages = async (req, res) => {
   try {
@@ -34,14 +34,17 @@ const getAllImages = async (req, res) => {
   }
 };
 
-// ❌ Delete image by MongoDB _id
+// ❌ Delete image by no
 const deleteImage = async (req, res) => {
   try {
     const image = await ImageSlider.findOne({ no: req.params.no });
     if (!image) return res.status(404).json({ message: 'Image not found' });
 
-    // Delete from Cloudinary
-    await cloudinary.uploader.destroy(image.public_id);
+    // Delete from uploads folder
+    const filePath = path.join(__dirname, '../../uploads', image.public_id);
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+    }
 
     // Delete from MongoDB
     await ImageSlider.deleteOne({ no: req.params.no });
@@ -53,17 +56,23 @@ const deleteImage = async (req, res) => {
   }
 };
 
-
-// ✏️ Update image (new file optional)
+// ✏️ Update image (with optional new file)
 const updateImage = async (req, res) => {
   try {
-    const image = await ImageSlider.findOne({ no: req.params.no }); // ✅ fix here
+    const image = await ImageSlider.findOne({ no: req.params.no });
     if (!image) return res.status(404).json({ message: 'Image not found' });
 
     let updatedData = {};
 
+    // If new image file is provided
     if (req.file) {
-      updatedData.url = req.file.path;
+      // Delete old image file from disk
+      const oldFilePath = path.join(__dirname, '../../uploads', image.public_id);
+      if (fs.existsSync(oldFilePath)) {
+        fs.unlinkSync(oldFilePath);
+      }
+
+      updatedData.url = `/uploads/${req.file.filename}`;
       updatedData.public_id = req.file.filename;
     }
 
@@ -72,7 +81,7 @@ const updateImage = async (req, res) => {
     }
 
     const updated = await ImageSlider.findOneAndUpdate(
-      { no: req.params.no }, // ✅ fix here
+      { no: req.params.no },
       updatedData,
       { new: true }
     );
@@ -83,7 +92,6 @@ const updateImage = async (req, res) => {
     res.status(500).json({ message: 'Failed to update image', error: error.message });
   }
 };
-
 
 module.exports = {
   uploadImages,
