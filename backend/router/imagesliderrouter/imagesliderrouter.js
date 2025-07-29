@@ -15,3 +15,4 @@ router.delete('/:no', deleteImage);
 router.put('/:no', upload.single('image'), updateImage); // for single image update
 
 module.exports = router;
+ 

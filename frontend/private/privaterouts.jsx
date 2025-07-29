@@ -64,7 +64,7 @@ const PrivateRoute = ({ children, allowedRoles = [] }) => {
 
   if (loading) return <div>Loading...</div>;
 
-  if (!role) return <Navigate to="/" replace />;
+  if (!role) return <Navigate to="/unauthorized" replace />;
 
   if (!allowedRoles.includes(role)) {
     return <Navigate to="/unauthorized" replace />;

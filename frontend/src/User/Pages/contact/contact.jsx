@@ -1,4 +1,7 @@
 import React, { useState, useCallback } from "react";
+import axios from "../../../../api/axios"; 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; 
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -56,23 +59,23 @@ const ContactUs = () => {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch("http://127.0.0.1:2025/api/contact-us", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await axios.post("/submit/contact", {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.mobile,
+        message: formData.message,
+      }, { timeout: 4000 }); // fast request
 
-      const result = await response.json();
-      if (response.ok) {
-        alert("Message sent successfully!");
+      if (response.data.success) {
+        toast.success("✅ Message sent successfully!", { position: "top-right" });
         setFormData({ name: "", mobile: "", email: "", message: "" });
         setErrors({});
       } else {
-        alert(result.message || "Failed to send message. Please try again.");
+        toast.error(response.data.message || "❌ Failed to send message.", { position: "top-right" });
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      alert("An error occurred. Please try again later.");
+      toast.error("❌ Network error. Please try again later.", { position: "top-right" });
     } finally {
       setIsSubmitting(false);
     }
@@ -82,6 +85,7 @@ const ContactUs = () => {
     <div className="bg-white text-gray-800 container mx-auto p-4">
       <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* ✅ Form Section */}
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
             <label htmlFor="name" className="font-semibold">Name</label>
@@ -147,8 +151,9 @@ const ContactUs = () => {
           </button>
         </form>
 
+        {/* ✅ Contact Info Section (unchanged) */}
         <div>
-          <div className="mb-2">
+         <div className="mb-2">
             <h2 className="text-2xl font-bold mb-4 flex items-center">
               <span className="bg-orange-500 h-6 w-1 mr-2"></span>
               INDIA HEAD OFFICE
@@ -203,8 +208,8 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-
       </div>
+
       <div className="mt-8">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3511.2936394417075!2d77.34505539999999!3d28.3499707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdb9766d62aab%3A0x499dcf82d3074077!2sAurinko%20Healthcare%20Private%20Limited!5e0!3m2!1sen!2sin!4v1741677068894!5m2!1sen!2sin"
@@ -214,6 +219,9 @@ const ContactUs = () => {
           allowFullScreen=""
         ></iframe>
       </div>
+
+      {/* ✅ Toastify Container */}
+      <ToastContainer />
     </div>
   );
 };

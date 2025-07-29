@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import axios from "../../../../api/axios";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export default function ImageSlider() {
   const [images, setImages] = useState([]);
@@ -9,6 +12,7 @@ export default function ImageSlider() {
   const intervalRef = useRef(null);
   const navigate = useNavigate();
 
+  // 📸 Fetch all images
   const fetchImages = async () => {
     try {
       const res = await axios.get("/images/all");
@@ -20,10 +24,37 @@ export default function ImageSlider() {
     }
   };
 
+  // ✅ Show location-based toast only once
+  const showWelcomeToast = (country, region, city) => {
+    const hasVisited = localStorage.getItem("hasVisited");
+    if (!hasVisited) {
+      toast.success(`🎉 Welcome from ${city}, ${region}, ${country}!`, {
+        position: "top-center",
+        autoClose: 3500,
+        theme: "colored",
+      });
+      localStorage.setItem("hasVisited", "true");
+    }
+  };
+
+  // 🔍 Track visitor and show geo toast
+  const trackVisitor = async () => {
+    try {
+      const res = await axios.get("/visitors/track");
+      const { country, region, city } = res.data;
+      showWelcomeToast(country, region, city);
+    } catch (err) {
+      console.error("Visitor tracking failed:", err);
+    }
+  };
+
+  // 🚀 First Load
   useEffect(() => {
     fetchImages();
+    trackVisitor();
   }, []);
 
+  // ⏱️ Auto Slide Interval
   useEffect(() => {
     if (images.length > 0) {
       intervalRef.current = setInterval(() => {
@@ -33,14 +64,17 @@ export default function ImageSlider() {
     return () => clearInterval(intervalRef.current);
   }, [images]);
 
+  // ⬅️ Prev Slide
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
+  // ➡️ Next Slide
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
+  // 🔃 Loading state
   if (images.length === 0) {
     return (
       <div className="w-full h-[300px] flex justify-center items-center text-gray-500">
@@ -53,15 +87,11 @@ export default function ImageSlider() {
     <div className="relative w-full mx-auto">
       <div className="relative w-full h-full overflow-hidden">
         <img
-          src={
-            images[currentIndex].url.startsWith("http")
-              ? images[currentIndex].url
-              : `http://localhost:2026${images[currentIndex].url}`
-          }
-          alt={`Slide ${currentIndex + 1}`}
-          className="w-full h-full transition-transform duration-500 ease-in-out"
-          loading="eager"
-        />
+  src={images[currentIndex].url} 
+  alt={`Slide ${currentIndex + 1}`}
+  className="w-full h-full transition-transform duration-500 ease-in-out object-cover"
+  loading="eager"
+/>
 
       </div>
 
@@ -82,6 +112,9 @@ export default function ImageSlider() {
       >
         <FaChevronRight />
       </button>
+
+      {/* Toast container */}
+      <ToastContainer />
     </div>
   );
 }

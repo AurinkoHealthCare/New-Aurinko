@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:2026/api', // backend ka base URL
+  baseURL: import.meta.env.VITE_API_BASE_URL, // backend ka base URL
   withCredentials: true, // cookies ko allow karega
 });
 

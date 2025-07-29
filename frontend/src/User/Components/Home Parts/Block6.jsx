@@ -20,7 +20,7 @@ const Block6 = () => {
 
     return () => clearInterval(interval);
   }, []);
-
+  
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between px-6 md:px-16 py-20 gap-16">
 

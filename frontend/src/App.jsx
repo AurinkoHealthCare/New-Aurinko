@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, } from 'react-router-dom';
 import User from './User/User';
 import Admin from './Admin/admin';
 
@@ -122,8 +122,10 @@ import Ingredient from './Admin/Pages/Pages/Ingredients/Ingredients';
 
 // Contact
 import Contact from './Admin/Pages/Pages/Contact Us/Contact us';
+import TrackVisitor from '../api/totalvisitors';
 
 function App() {
+  TrackVisitor()
   return (
     <div>
       <Routes>
@@ -257,10 +259,8 @@ function App() {
           <Route path='/dashboard/feedback' element={<Feedback />} />
         </Route>
         <Route path="/unauthorized" element={<Unauthorized />} />
-
       </Routes>
     </div>
   );
 }
-
 export default App;

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import axios from "../../../../../api/axios"; // ✅ custom axios instance
 
 const Block1 = () => {
-  const [heading, setHeading] = useState("");
-  const [summary, setSummary] = useState("");
   const [items, setItems] = useState([
-    { image: null, name: "", rating: "", category: "", preview: "" },
+    { image: null, name: "", category: "", details: "", preview: "" },
   ]);
+  const [modalImage, setModalImage] = useState(null); // ✅ for image preview modal
 
+  // handle image upload
   const handleImageChange = (e, index) => {
     const file = e.target.files[0];
     const newItems = [...items];
@@ -15,6 +16,7 @@ const Block1 = () => {
     setItems(newItems);
   };
 
+  // handle input changes
   const handleChange = (e, index) => {
     const { name, value } = e.target;
     const newItems = [...items];
@@ -22,57 +24,63 @@ const Block1 = () => {
     setItems(newItems);
   };
 
+  // add more product fields
   const handleAddMore = () => {
     if (items.length >= 5) {
-      alert("❌ Maximum 5 items allowed");
+      alert("❌ Maximum 5 products allowed per submission");
       return;
     }
     setItems([
       ...items,
-      { image: null, name: "", rating: "", category: "", preview: "" },
+      { image: null, name: "", category: "", details: "", preview: "" },
     ]);
   };
 
-  const handleSubmit = (e) => {
+  // submit form
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("📋 Aurinko Healthcare Submission:");
-    console.log("Heading:", heading);
-    console.log("Summary:", summary);
-    items.forEach((item, index) => {
-      console.log(`Item ${index + 1}`);
-      console.log("Name:", item.name);
-      console.log("Rating:", item.rating);
-      console.log("Category:", item.category);
-      console.log("Image:", item.image);
-    });
-    alert("✅ Data saved successfully!");
+
+    try {
+      for (const item of items) {
+        const formData = new FormData();
+        formData.append("name", item.name);
+        formData.append("category", item.category);
+        formData.append("details", item.details);
+        if (item.image) formData.append("image", item.image);
+
+        const { data } = await axios.post("/products/add", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+
+        console.log("✅ Saved:", data);
+      }
+
+      alert("✅ All products saved successfully!");
+      setItems([{ image: null, name: "", category: "", details: "", preview: "" }]);
+    } catch (err) {
+      console.error("❌ Error saving products:", err);
+      alert("❌ Failed to save products. Check console for details.");
+    }
   };
 
   return (
     <div className="p-6 max-w-4xl mx-auto pt-0">
-      <h2 className="text-2xl font-bold mb-4 text-center text-green-800">
-        GLOBAL PROVIDER OF HUMAN NUTRACEUTICALS
+       <h2 className="text-2xl font-bold mb-4 text-center text-green-800">
+        For All Products Adding
       </h2>
-
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={heading}
-          onChange={(e) => setHeading(e.target.value)}
-          placeholder="Enter Heading"
-          className="w-full border p-2 rounded mb-4"
-          required
-        />
-
         {items.map((item, index) => (
-          <div key={index} className="border rounded p-4 mb-6 shadow-sm">
-            <h3 className="font-semibold mb-2">Product {index + 1}</h3>
+          <div key={index} className="border rounded-lg p-4 mb-6 shadow-md bg-white">
+            <h3 className="font-semibold mb-2 text-lg text-gray-800">
+              Product {index + 1}
+            </h3>
 
             {item.preview && (
               <img
                 src={item.preview}
                 alt="Preview"
-                className="w-32 h-32 object-cover mb-2 rounded border"
+                onClick={() => setModalImage(item.preview)} // ✅ open modal
+                className="w-32 h-32 object-cover mb-2 rounded border cursor-pointer hover:scale-105 transition"
               />
             )}
 
@@ -95,18 +103,6 @@ const Block1 = () => {
             />
 
             <input
-              type="number"
-              name="rating"
-              value={item.rating}
-              onChange={(e) => handleChange(e, index)}
-              placeholder="Rating (1-5)"
-              min="1"
-              max="5"
-              className="w-full border p-2 rounded mb-2"
-              required
-            />
-
-            <input
               type="text"
               name="category"
               value={item.category}
@@ -116,19 +112,17 @@ const Block1 = () => {
               required
             />
 
-            {/* ✅ Summary placed just below Category */}
             <textarea
-              name="summary"
-              value={item.summary}
+              name="details"
+              value={item.details}
               onChange={(e) => handleChange(e, index)}
-              placeholder="Summary"
+              placeholder="Product Details"
               className="w-full border p-2 rounded"
               rows="3"
               required
             />
           </div>
         ))}
-
 
         <div className="flex justify-between items-center">
           <button
@@ -147,6 +141,20 @@ const Block1 = () => {
           </button>
         </div>
       </form>
+
+      {/* ✅ Image Preview Modal */}
+      {modalImage && (
+        <div
+          onClick={() => setModalImage(null)}
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+        >
+          <img
+            src={modalImage}
+            alt="Full Preview"
+            className="max-w-3xl max-h-[80vh] rounded-lg shadow-2xl"
+          />
+        </div>
+      )}
     </div>
   );
 };

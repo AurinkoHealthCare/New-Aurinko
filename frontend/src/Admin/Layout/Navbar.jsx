@@ -4,228 +4,225 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "../../../api/axios";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [openDropdown, setOpenDropdown] = useState(null);
-    const [nestedDropdown, setNestedDropdown] = useState({});
+  const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [nestedDropdown, setNestedDropdown] = useState({});
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-    };
+  const toggleSidebar = () => setIsOpen(!isOpen);
 
-    const toggleDropdown = (menu) => {
-        setOpenDropdown(openDropdown === menu ? null : menu);
-    };
+  const toggleDropdown = (menu) =>
+    setOpenDropdown(openDropdown === menu ? null : menu);
 
-    const toggleNestedDropdown = (parent, child) => {
-        setNestedDropdown((prev) => ({
-            ...prev,
-            [parent]: prev[parent] === child ? null : child,
-        }));
-    };
-    const handleLogout = async () => {
-        try {
-            // Clear cookie from server
-            await axios.post("/auth/logout", { withCredentials: true });
+  const toggleNestedDropdown = (parent, child) =>
+    setNestedDropdown((prev) => ({
+      ...prev,
+      [parent]: prev[parent] === child ? null : child,
+    }));
 
-            // Remove local token (if any)
-            localStorage.removeItem("token");
+  const handleLogout = async () => {
+    try {
+      await axios.post("/auth/logout", { withCredentials: true });
+      localStorage.removeItem("token");
+      navigate("/");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
-            // Navigate to login or home
-            navigate("/");
-        } catch (error) {
-            console.error("Logout failed:", error);
-        }
-    };
+  return (
+    <div className="flex min-h-screen">
+      {/* Toggle button - visible only on mobile */}
+      <button
+        onClick={toggleSidebar}
+        className="p-2 text-white bg-gray-800 md:hidden fixed top-4 left-4 z-50 rounded"
+      >
+        {isOpen ? <X /> : <Menu />}
+      </button>
 
-    return (
-        <div className="flex">
-            <button
-                onClick={toggleSidebar}
-                className="p-2 text-white bg-gray-800 md:hidden fixed top-0 left-0 z-50"
-            >
-                {isOpen ? <X /> : <Menu />}
-            </button>
-
-            <div
-                className={`fixed top-0 left-0 z-40 bg-gray-800 text-white w-64 pt-16 px-4 pb-4 min-h-screen transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
-                    } md:pt-4 md:translate-x-0 md:relative md:block`}
-            >
-
-                <div className="mb-6">
-                    <h1 className="text-xl font-bold md:text-left">Aurinko One Health</h1>
-                </div>
-
-                <div className="flex flex-col space-y-3">
-                    <Link to={"/dashboard/"}><button className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left">
-                        Home
-                    </button></Link>
-
-                    {/* Media Dropdown */}
-                    <div>
-                        <button
-                            className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left flex justify-between items-center w-full"
-                            onClick={() => toggleDropdown("media")}
-                        >
-                            Media <ChevronDown className="w-4 h-4 ml-2" />
-                        </button>
-                        {openDropdown === "media" && (
-                            <div className="ml-4 mt-1 space-y-2">
-                                <Link to={"/dashboard/banner"}><button className="block w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Banner</button></Link>
-                                <Link to={"/dashboard/productimage"}><button className="block w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Product Images</button></Link>
-                                <Link to={"/dashboard/productlogo"}><button className="block w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Product Logo</button></Link>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Pages Dropdown */}
-                    <div>
-                        <button
-                            className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left flex justify-between items-center w-full"
-                            onClick={() => toggleDropdown("pages")}
-                        >
-                            Pages <ChevronDown className="w-4 h-4 ml-2" />
-                        </button>
-                        {openDropdown === "pages" && (
-                            <div className="ml-4 mt-1 space-y-2">
-                                {/* Home */}
-                                <div>
-                                    <button
-                                        onClick={() => toggleNestedDropdown("pages", "Home")}
-                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
-                                    >
-                                        Home <ChevronDown className="w-4 h-4" />
-                                    </button>
-                                    {nestedDropdown["pages"] === "Home" && (
-                                        <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/imageSlider"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Image Slider</button></Link>
-                                            <Link to={"/dashboard/block1"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Block 1</button></Link>
-                                            <Link to={"/dashboard/block2"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Block 2</button></Link>
-                                            <Link to={"/dashboard/block3"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Block 3</button></Link>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* About Us */}
-                                <div>
-                                    <button
-                                        onClick={() => toggleNestedDropdown("pages", "About Us")}
-                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
-                                    >
-                                        About Us <ChevronDown className="w-4 h-4" />
-                                    </button>
-                                    {nestedDropdown["pages"] === "About Us" && (
-                                        <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/overview"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Overview</button></Link>
-                                            <Link to={"/dashboard/Vision"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Vision & Mission</button></Link>
-                                            <Link to={"/dashboard/manufacturing"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Manufacturing Facility</button></Link>
-                                            <Link to={"/dashboard/research"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Research & Development</button></Link>
-                                            <Link to={"/dashboard/exporte"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Export</button></Link>
-                                            <Link to={"/dashboard/certificate"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Certificates</button></Link>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Human */}
-                                <div>
-                                    <button
-                                        onClick={() => toggleNestedDropdown("pages", "Human")}
-                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
-                                    >
-                                        Human <ChevronDown className="w-4 h-4" />
-                                    </button>
-                                    {nestedDropdown["pages"] === "Human" && (
-                                        <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/nanophosphosomes"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
-                                            <Link to={"/dashboard/neunamins"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
-                                            <Link to={"/dashboard/neunaparticle"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
-                                            <Link to={"/dashboard/health_Supplements"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Health Supplements</button></Link>
-                                            <Link to={"/dashboard/personal_Care"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Personal Care</button></Link>
-                                            <Link to={"/dashboard/yeppuen "}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Yeppuen</button></Link>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Veterinary */}
-                                <div>
-                                    <button
-                                        onClick={() => toggleNestedDropdown("pages", "Veterinary")}
-                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
-                                    >
-                                        Veterinary <ChevronDown className="w-4 h-4" />
-                                    </button>
-                                    {nestedDropdown["pages"] === "Veterinary" && (
-                                        <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/DVNanophosphosome"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Nanophosphosomes®</button></Link>
-                                            <Link to={"/dashboard/DVNeunamin"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Neuna®mins</button></Link>
-                                            <Link to={"/dashboard/DVNeunaparticle"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Neuna®particles</button></Link>
-                                            <Link to={"/dashboard/DVLivestock"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Livestock</button></Link>
-                                            <Link to={"/dashboard/DVPoultry"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Poultry</button></Link>
-                                            <Link to={"/dashboard/DVAqua"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Aqua</button></Link>
-                                            <Link to={"/dashboard/DVSwine"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Swine</button></Link>
-                                            <Link to={"/dashboard/DVEquine"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Equine</button></Link>
-                                            <Link to={"/dashboard/DVPet"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Pet</button></Link>
-                                            <Link to={"/dashboard/DVFeed_Grain"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Feed & Grain</button></Link>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Agriculture */}
-                                <div>
-                                    <button
-                                        onClick={() => toggleNestedDropdown("pages", "Agriculture")}
-                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
-                                    >
-                                        Agriculture <ChevronDown className="w-4 h-4" />
-                                    </button>
-                                    {nestedDropdown["pages"] === "Agriculture" && (
-                                        <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/nanofertilizer"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Nano Fertilizers</button></Link>
-                                            <Link to={"/dashboard/soilmineral"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Soil Minerals</button></Link>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Ingredients */}
-                                <Link to={"/dashboard/ingredients"}><button className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded">Ingredients</button></Link>
-
-                                {/* Media */}
-                                <div>
-                                    <button
-                                        onClick={() => toggleNestedDropdown("pages", "Media")}
-                                        className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
-                                    >
-                                        Media <ChevronDown className="w-4 h-4" />
-                                    </button>
-                                    {nestedDropdown["pages"] === "Media" && (
-                                        <div className="ml-4 mt-1 text-base space-y-1">
-                                            <Link to={"/dashboard/Reports"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Reports</button></Link>
-                                            <Link to={"/dashboard/Gallery"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Gallery</button></Link>
-                                            <Link to={"/dashboard/Brochures"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Brochures</button></Link>
-                                            <Link to={"/dashboard/Blogs"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Blogs</button></Link>
-                                            <Link to={"/dashboard/Articles"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Articles</button></Link>
-                                            <Link to={"/dashboard/Videos"}><button className="w-full text-left px-2 p-1 hover:bg-gray-700 rounded">Videos</button></Link>
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Contact Us */}
-                                <Link to={"/dashboard/contact"}><button className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded">Contact Us</button></Link>
-                            </div>
-                        )}
-                    </div>
-
-                    <Link to={"/dashboard/feedback"}><button className="hover:underline hover:bg-gray-600 px-4 py-2 rounded text-left">
-                        Feedback
-                    </button></Link>
-
-                    <button onClick={handleLogout} className="text-right hover:underline text-red-300 px-4 py-2 rounded">
-                        Log out
-                    </button>
-                </div>
-            </div>
+      {/* Sidebar */}
+      <div
+        className={`fixed top-0 left-0 z-40 bg-gray-900 text-white w-64 pt-16 px-4 pb-5 h-full transform transition-transform duration-300 ease-in-out shadow-lg ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 md:relative md:block`}
+      >
+        {/* Branding */}
+        <div className="mb-6 text-center md:text-left">
+          <h1 className="text-xl font-bold">Aurinko One Health</h1>
         </div>
-    );
+
+        {/* Navigation Items */}
+        <div className="space-y-3 text-sm">
+          <NavLink to="/dashboard/" label="Home" />
+          <Dropdown
+            label="Media"
+            isOpen={openDropdown === "media"}
+            onToggle={() => toggleDropdown("media")}
+            links={[
+              { to: "/dashboard/banner", label: "Banner" },
+              { to: "/dashboard/productimage", label: "Product Images" },
+              { to: "/dashboard/productlogo", label: "Product Logo" },
+            ]}
+          />
+
+          <Dropdown
+            label="Pages"
+            isOpen={openDropdown === "pages"}
+            onToggle={() => toggleDropdown("pages")}
+            nested={[
+              {
+                label: "Home",
+                items: [
+                  { to: "/dashboard/imageSlider", label: "Image Slider" },
+                  { to: "/dashboard/block1", label: "Block 1" },
+                  { to: "/dashboard/block2", label: "Block 2" },
+                  { to: "/dashboard/block3", label: "Block 3" },
+                ],
+              },
+              {
+                label: "About Us",
+                items: [
+                  { to: "/dashboard/overview", label: "Overview" },
+                  { to: "/dashboard/Vision", label: "Vision & Mission" },
+                  { to: "/dashboard/manufacturing", label: "Manufacturing Facility" },
+                  { to: "/dashboard/research", label: "Research & Development" },
+                  { to: "/dashboard/exporte", label: "Export" },
+                  { to: "/dashboard/certificate", label: "Certificates" },
+                ],
+              },
+              {
+                label: "Human",
+                items: [
+                  { to: "/dashboard/nanophosphosomes", label: "Nanophosphosomes®" },
+                  { to: "/dashboard/neunamins", label: "Neuna®mins" },
+                  { to: "/dashboard/neunaparticle", label: "Neuna®particles" },
+                  { to: "/dashboard/health_Supplements", label: "Health Supplements" },
+                  { to: "/dashboard/personal_Care", label: "Personal Care" },
+                  { to: "/dashboard/yeppuen", label: "Yeppuen" },
+                ],
+              },
+              {
+                label: "Veterinary",
+                items: [
+                  { to: "/dashboard/DVNanophosphosome", label: "Nanophosphosomes®" },
+                  { to: "/dashboard/DVNeunamin", label: "Neuna®mins" },
+                  { to: "/dashboard/DVNeunaparticle", label: "Neuna®particles" },
+                  { to: "/dashboard/DVLivestock", label: "Livestock" },
+                  { to: "/dashboard/DVPoultry", label: "Poultry" },
+                  { to: "/dashboard/DVAqua", label: "Aqua" },
+                  { to: "/dashboard/DVSwine", label: "Swine" },
+                  { to: "/dashboard/DVEquine", label: "Equine" },
+                  { to: "/dashboard/DVPet", label: "Pet" },
+                  { to: "/dashboard/DVFeed_Grain", label: "Feed & Grain" },
+                ],
+              },
+              {
+                label: "Agriculture",
+                items: [
+                  { to: "/dashboard/nanofertilizer", label: "Nano Fertilizers" },
+                  { to: "/dashboard/soilmineral", label: "Soil Minerals" },
+                ],
+              },
+              {
+                label: "Ingredients",
+                items: [{ to: "/dashboard/ingredients", label: "Ingredients" }],
+              },
+              {
+                label: "Media",
+                items: [
+                  { to: "/dashboard/Reports", label: "Reports" },
+                  { to: "/dashboard/Gallery", label: "Gallery" },
+                  { to: "/dashboard/Brochures", label: "Brochures" },
+                  { to: "/dashboard/Blogs", label: "Blogs" },
+                  { to: "/dashboard/Articles", label: "Articles" },
+                  { to: "/dashboard/Videos", label: "Videos" },
+                ],
+              },
+              {
+                label: "Contact Us",
+                items: [{ to: "/dashboard/contact", label: "Contact Us" }],
+              },
+            ]}
+            nestedDropdown={nestedDropdown}
+            onNestedToggle={toggleNestedDropdown}
+          />
+
+          <NavLink to="/dashboard/feedback" label="Feedback" />
+
+          {/* Logout */}
+          <button
+            onClick={handleLogout}
+            className="w-full text-left text-red-400 hover:text-red-300 px-4 py-2 rounded hover:bg-gray-700 transition"
+          >
+            Log out
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ========== Reusable Components ==========
+
+const NavLink = ({ to, label }) => (
+  <Link to={to}>
+    <button className="w-full text-left px-4 py-2 rounded hover:bg-gray-700 transition">
+      {label}
+    </button>
+  </Link>
+);
+
+const Dropdown = ({
+  label,
+  isOpen,
+  onToggle,
+  links,
+  nested,
+  nestedDropdown,
+  onNestedToggle,
+}) => {
+  return (
+    <div>
+      <button
+        onClick={onToggle}
+        className="w-full flex justify-between items-center px-4 py-2 rounded hover:bg-gray-700 transition"
+      >
+        {label} <ChevronDown className="w-4 h-4 ml-2" />
+      </button>
+
+      {/* Flat Dropdown */}
+      {isOpen && links && (
+        <div className="ml-4 mt-1 space-y-1">
+          {links.map((link, idx) => (
+            <NavLink key={idx} to={link.to} label={link.label} />
+          ))}
+        </div>
+      )}
+
+      {/* Nested Dropdown */}
+      {isOpen && nested && (
+        <div className="ml-4 mt-1 space-y-2">
+          {nested.map((group, idx) => (
+            <div key={idx}>
+              <button
+                onClick={() => onNestedToggle(label, group.label)}
+                className="flex justify-between items-center w-full px-2 p-1 hover:bg-gray-700 rounded"
+              >
+                {group.label} <ChevronDown className="w-4 h-4" />
+              </button>
+              {nestedDropdown?.[label] === group.label && (
+                <div className="ml-4 mt-1 space-y-1">
+                  {group.items.map((item, i) => (
+                    <NavLink key={i} to={item.to} label={item.label} />
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Navbar;
