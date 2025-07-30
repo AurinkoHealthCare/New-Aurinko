@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import axios from "../../../../api/axios"; 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; 
+import ProductsList from "../../../../utils/products";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -141,7 +142,6 @@ const ContactUs = () => {
             ></textarea>
             {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
           </div>
-
           <button
             type="submit"
             className="bg-green-800 text-white px-4 py-2 rounded disabled:bg-gray-500"
@@ -222,6 +222,7 @@ const ContactUs = () => {
 
       {/* ✅ Toastify Container */}
       <ToastContainer />
+      <ProductsList />
     </div>
   );
 };
