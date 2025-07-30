@@ -24,19 +24,6 @@ export default function ImageSlider() {
     }
   };
 
-  // ✅ Show location-based toast only once
-  const showWelcomeToast = (country, region, city) => {
-    const hasVisited = localStorage.getItem("hasVisited");
-    if (!hasVisited) {
-      toast.success(`🎉 Welcome from ${city}, ${region}, ${country}!`, {
-        position: "top-center",
-        autoClose: 3500,
-        theme: "colored",
-      });
-      localStorage.setItem("hasVisited", "true");
-    }
-  };
-
   // 🔍 Track visitor and show geo toast
   const trackVisitor = async () => {
     try {
@@ -112,9 +99,6 @@ export default function ImageSlider() {
       >
         <FaChevronRight />
       </button>
-
-      {/* Toast container */}
-      <ToastContainer />
     </div>
   );
 }
